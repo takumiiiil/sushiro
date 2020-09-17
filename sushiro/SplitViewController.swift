@@ -54,6 +54,7 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         "movie01","movie02","movie03"
     ]
     
+    //いじってみます
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -76,10 +77,10 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == pickerView1{
-            appDelegate.soundNum=dataList1[row]
+            appDelegate.soundNum = dataList1[row]
             appDelegate.pickerView1Ini = row
         }else{
-            appDelegate.movieNum=dataList2[row]
+            appDelegate.movieNum = dataList2[row]
             appDelegate.pickerView2Ini = row
         }
     }
