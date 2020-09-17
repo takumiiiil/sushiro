@@ -580,3 +580,4 @@ extension SplitViewController: UITableViewDelegate {
       }
     }
 }
+//devHigashiで更新しましたよー
