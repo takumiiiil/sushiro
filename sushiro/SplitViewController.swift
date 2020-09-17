@@ -54,6 +54,7 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         "movie01","movie02","movie03"
     ]
     
+    //いじってみます
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -76,10 +77,10 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == pickerView1{
-            appDelegate.soundNum=dataList1[row]
+            appDelegate.soundNum = dataList1[row]
             appDelegate.pickerView1Ini = row
         }else{
-            appDelegate.movieNum=dataList2[row]
+            appDelegate.movieNum = dataList2[row]
             appDelegate.pickerView2Ini = row
         }
     }
@@ -125,12 +126,12 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if appDelegate.viewType == "年代別来店割合" || appDelegate.viewType == "年代別平均皿数"{
             // テキストを右寄せにする
             label.textAlignment = NSTextAlignment.right
-            tableView = UITableView(frame: CGRect(x:460, y: 0, width: screenWidth/5, height: screenHeight), style: .grouped)
+            tableView = UITableView(frame: CGRect(x:380, y: 0, width: screenWidth/5, height: screenHeight), style: .grouped)
         }else{
             // テキストを中央寄せにする
             label.textAlignment = NSTextAlignment.center
             view.backgroundColor = UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: 1)
-            tableView = UITableView(frame: CGRect(x:0, y: 0, width: screenWidth/2 + 200, height: screenHeight), style: .grouped)
+            tableView = UITableView(frame: CGRect(x:65, y: 0, width: screenWidth/2 + 200, height: screenHeight), style: .grouped)
         }
         tableView.dataSource = self
         tableView.delegate = self
