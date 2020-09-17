@@ -13,6 +13,8 @@
 		33187EB8251325BA00D4BD18 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33187EB5251325BA00D4BD18 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		33187EB9251325BA00D4BD18 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33187EB6251325BA00D4BD18 /* RealmSwift.framework */; };
 		33187EBA251325BA00D4BD18 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33187EB6251325BA00D4BD18 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33187EBE25134CB600D4BD18 /* FlagDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EBD25134CB600D4BD18 /* FlagDelegate.swift */; };
+		33187EC025134CD800D4BD18 /* SettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EBF25134CD800D4BD18 /* SettingDelegate.swift */; };
 		3333102725131E0100EC7320 /* button01b.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102425131E0000EC7320 /* button01b.mp3 */; };
 		3333102825131E0100EC7320 /* button01c.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102525131E0100EC7320 /* button01c.mp3 */; };
 		3333102925131E0100EC7320 /* button01a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102625131E0100EC7320 /* button01a.mp3 */; };
@@ -68,6 +70,8 @@
 		33187EB22513259F00D4BD18 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = sushiro/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		33187EB5251325BA00D4BD18 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = sushiro/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		33187EB6251325BA00D4BD18 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = sushiro/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		33187EBD25134CB600D4BD18 /* FlagDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagDelegate.swift; sourceTree = "<group>"; };
+		33187EBF25134CD800D4BD18 /* SettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDelegate.swift; sourceTree = "<group>"; };
 		3333102125131DF600EC7320 /* movie02.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie02.mp4; path = "../../../uobei/魚べい素材/映像/movie02.mp4"; sourceTree = "<group>"; };
 		3333102225131DF600EC7320 /* movie01.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie01.mp4; path = "../../../uobei/魚べい素材/映像/movie01.mp4"; sourceTree = "<group>"; };
 		3333102325131DF600EC7320 /* movie03.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie03.mp4; path = "../../../uobei/魚べい素材/映像/movie03.mp4"; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33187EBC25134C5100D4BD18 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				33187EBD25134CB600D4BD18 /* FlagDelegate.swift */,
+				33187EBF25134CD800D4BD18 /* SettingDelegate.swift */,
+			);
+			name = delegate;
+			sourceTree = "<group>";
+		};
 		E1204C1425130EAE00274E5B /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +223,7 @@
 		E1DEE133250DCEAE001F32A6 /* sushiro */ = {
 			isa = PBXGroup;
 			children = (
+				33187EBC25134C5100D4BD18 /* delegate */,
 				E1204C1925130EFD00274E5B /* makeUI */,
 				E1204C1825130EEB00274E5B /* originalMethod */,
 				E1204C1725130EDE00274E5B /* extention */,
@@ -317,7 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1DEE139250DCEAE001F32A6 /* ViewController.swift in Sources */,
+				33187EC025134CD800D4BD18 /* SettingDelegate.swift in Sources */,
 				E1C8AEA0250DD186007B18DC /* Ticket.swift in Sources */,
+				33187EBE25134CB600D4BD18 /* FlagDelegate.swift in Sources */,
 				E1DEE135250DCEAE001F32A6 /* AppDelegate.swift in Sources */,
 				E1C8AEA2250DD186007B18DC /* Reception.swift in Sources */,
 				E1204C2525130FAB00274E5B /* DateExtention.swift in Sources */,
