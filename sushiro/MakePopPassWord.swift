@@ -4,11 +4,9 @@ class MakePopPassWord:UIAlertController{
     
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    func make(title:String,pass:String,_message:String)->UIAlertController{
+    func make(title:String,pass:String,transition:AnyObject,view:AnyObject,_message:String = ""){
         let alert: UIAlertController!
-        alert = UIAlertController(title: title,
-                                            message: message,
-                                            preferredStyle: .alert)
+        alert = UIAlertController(title: title,message: _message,preferredStyle: .alert)
  
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
@@ -19,22 +17,14 @@ class MakePopPassWord:UIAlertController{
                     if textField.text! == pass{
                         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-                        appDelegate.window?.rootViewController = Accounting()
+                        appDelegate.window?.rootViewController = transition as! UIViewController
                         appDelegate.window?.makeKeyAndVisible()
                     }else if textField.text! != pass{
-                        print("passNG")
-                        let pop = MakePopUp()
-                        self.present(pop.alert(title: "hoge", _message: "hogehoge"), animated: true)
-                        /* self.present(ngalert, animated: true, completion: {
-                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                         ngalert.dismiss(animated: true, completion: nil)
-                         })*/
-               
+                        MakePopUp().alert(title: "パスワードが違います", view: view)
                     }
                 }
                 
             }
-           
         })
         alert.addAction(okAction)
         
@@ -47,8 +37,9 @@ class MakePopPassWord:UIAlertController{
             textField.placeholder = "パスワード"
             textField.isSecureTextEntry = true
         })
-        return(alert)
-       
+        
+         view.present(alert, animated: true, completion:nil)
+
     }
     
     

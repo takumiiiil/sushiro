@@ -121,11 +121,11 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             }else{
                 //ポップアップ表示
                 let pop3 = MakePopUp()
-                self.present(pop3.alert(title: "未入力があります", _message: ""), animated: true, completion: {
+                /*self.present(pop3.alert(title: "未入力があります", _message: ""), animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                         self.dismiss(animated: true, completion: nil)
                     })
-                })
+                })*/
                 break
             }
         case 19:
