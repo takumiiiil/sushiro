@@ -3,7 +3,9 @@ import Foundation
 import UIKit
 //ボタン作成class(イメージ有り)
 class MakeButton:UIButton,selection{
+    
     @objc func selection(sender: UIButton) {}
+    
     func make(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,tag:Int,
               _pic:String="",_borderWidth:CGFloat=0.0,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
               _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_adjustsFontSizeToFitWidth:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center)->UIButton{

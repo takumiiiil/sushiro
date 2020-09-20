@@ -1,15 +1,10 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import Foundation
 import RealmSwift
-import CoreImage
-
-
 
 class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let myInputImage = CIImage(image: UIImage(named: "kara")!)
     var addTimer = Timer()
     var timerCount = 0
     //テンキー用
@@ -24,13 +19,12 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 再生準備
-        audioPlayerInstance.prepareToPlay()
         
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: CGRect(x: 0,y: 0,width: 1024,height: 768))
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
+        //背景を設定
+        view.backgroundColor = UIColor.white
+        
+        // 再生準備
+        //audioPlayerInstance.prepareToPlay()
 
         //クラスをインスタンス化
         let button = MakeButton()
@@ -308,7 +302,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                        inputNum = String(inputNum.dropLast())
                        if inputNum == "" {
                            viewDidLoad()
-                           audioPlayerInstance.play()
+                           //audioPlayerInstance.play()
                            break
                        }
                        let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))!

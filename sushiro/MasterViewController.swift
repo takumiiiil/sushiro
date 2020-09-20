@@ -25,7 +25,7 @@ class MasterViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.frame = view.bounds
+     
         let screenWidth: CGFloat = UIScreen.main.bounds.width   //画面の幅
         let screenHeight: CGFloat = UIScreen.main.bounds.height//画面の高さ
         tableView = UITableView(frame: CGRect(x:0, y: 0, width: screenWidth, height: screenHeight), style: .grouped)
@@ -80,7 +80,7 @@ extension MasterViewController: UITableViewDelegate {
                             // アラートに含まれるすべてのテキストフィールドを調べる
                             for textField in textFields {
                                 if textField.text! == "1234"{
-                                       appDelegate.viewType = "年代別来店割合"
+                                       //appDelegate.viewType = "年代別来店割合"
                                        self.present(view.viewSet(view: Test(), anime: .flipHorizontal), animated: false, completion: nil)
                                 }else if textField.text! != "1234"{
                                     let ngalert = UIAlertController(title: "パスワードが違います", message: "", preferredStyle: .alert)
@@ -116,6 +116,8 @@ extension MasterViewController: UITableViewDelegate {
                    
                    // アラートを画面に表示
                    self.present(alert, animated: true, completion: nil)
+                   print("書き込んでるはず")
+                    appDelegate.viewType = "年代別来店割合"
                 }
             case "年代別平均皿数":
                 if (indexPath.section==2){

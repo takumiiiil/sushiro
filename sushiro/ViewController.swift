@@ -1,33 +1,32 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import CoreImage
 import RealmSwift
 
 var k = 0
 var j = 0
 var l = 0
 
-class ViewController: UIViewController ,selection{
+class ViewController: UIViewController{
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let myInputImage = CIImage(image: UIImage(named: "top.jpeg")!) // 画像を設定する.
-    var myImageView: UIImageView! // ImageViewを.定義する.
     var addTimer = Timer()
     let menuArray = [["set","ikura","ikura"],["nigiri1","nigiri2","gunkan"],["side","deza","drink"],["開発者モード","会計確認   注文履歴","店員呼出"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"top.jpeg"))
+        
         //クラスをインスタンス化
         let button = MakeButton()
-        
         audioPlayerInstance.prepareToPlay()
         
+        //タイマーを設定
         addTimer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(play), userInfo: nil, repeats: false)
-        myImageView = UIImageView(frame: UIScreen.main.bounds)
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
         
+        //UI作成
         for i in 0...3{
             for j in 0...2{
                 if i == 3{
