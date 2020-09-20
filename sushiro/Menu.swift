@@ -1,19 +1,13 @@
 import UIKit
-import AVFoundation//オーディオがらみ
+import AVFoundation
 import AVKit
-import Foundation
 import RealmSwift
-import CoreImage
-
-var myImageView: UIImageView!
 
 class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let myInputImage = CIImage(image: UIImage(named: "second.jpeg")!)
     var addTimer = Timer()
     var timerCount = 0
     
-    //メソッド作成
     //スワイプの最大
     func tag_max(choise:Int)->Int{
         var tag_max = 0
@@ -48,15 +42,14 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         super.viewDidLoad()
         
         let tag_flag1 = appDelegate.choise
+        
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"second.jpeg"))
+        
         //クラスをインスタンス化
         let button = MakeButton()
         let label = MakeLabel()
-        
-        
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: CGRect(x: 0,y: 0,width: 1024,height: 768))
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
         
         //写真ボタン作成
         for d in 0..<appDelegate.data[tag_flag1][appDelegate.tagFlag2].count{
@@ -121,6 +114,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             view1.image = v_Image
             self.view.addSubview(view1)
         }
+        
         // viewにジェスチャーを登録
         // スワイプを定義
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(Menu.leftSwipeView(sender:)))  //Swift3
@@ -165,7 +159,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             if appDelegate.box[appDelegate.counter].qty < 4{
                 appDelegate.box[appDelegate.counter].qty =  appDelegate.box[appDelegate.counter].qty+1
                 viewDidLoad()
-                audioPlayerInstance.play()
+            audioPlayerInstance.play()
             }else if appDelegate.box[appDelegate.counter].qty == 4{
                 // 画像を設定する.
                 let myInputImage = CIImage(image: UIImage(named: "over.jpeg")!)

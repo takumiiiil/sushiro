@@ -2,15 +2,11 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import Foundation
 import RealmSwift
-import CoreImage
 
 class Order: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var myTabBar:UITabBar!
-    let myInputImage = CIImage(image: UIImage(named: "order.jpeg")!)
-    var myImageView: UIImageView!
     var selectView: UIView! = nil
     var image0: UIImageView!
     var count = 0
@@ -43,11 +39,13 @@ class Order: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     //ボタン作成
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"order.jpeg"))
+        
         audioPlayerInstance.prepareToPlay()
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: UIScreen.main.bounds)
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
+       
+        //クラスをインスタンス化
         let label = MakeLabel()
         let button = MakeButton()
       

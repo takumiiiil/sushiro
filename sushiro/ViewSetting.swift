@@ -1,6 +1,7 @@
 import UIKit
 
 class viewSetting{
+    
     func viewSet(view:UIViewController,anime:UIModalTransitionStyle) -> UIViewController{
         let SViewController: UIViewController = view
         //アニメーションを設定する.
@@ -9,4 +10,5 @@ class viewSetting{
         SViewController.modalPresentationStyle = .fullScreen
         return SViewController
     }
+    
 }

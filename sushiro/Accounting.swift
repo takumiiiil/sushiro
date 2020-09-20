@@ -1,14 +1,10 @@
 import UIKit
-import AVFoundation//オーディオがらみ
-import AVKit
-import Foundation
+import AVFoundation
 import RealmSwift
-import CoreImage
-
 
 class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let myInputImage = CIImage(image: UIImage(named: "hakken2")!)
+ 
     var addTimer = Timer()
     var timerCount = 0
     var flag:[Bool] = [false,false,false]
@@ -16,17 +12,17 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        audioPlayerInstance.prepareToPlay()
         
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: CGRect(x: 0,y: 0,width: 1024,height: 768))
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"hakken2"))
         
         //クラスをインスタンス化
+        audioPlayerInstance.prepareToPlay()
         let button = MakeButton()
         let label = MakeLabel()
-        //共通ボタン作成
+        
+        //UI作成
         self.view.addSubview(label.make(x:40,y:180,width:160,height:70,back:UIColor.clear,_text:"大人・子供\n(7歳〜)", _fontSize:50))
         self.view.addSubview(label.make(x:40,y:310,width:160,height:70,back:UIColor.clear,_text:"未就学児\n(〜6歳)", _fontSize:50))
        
@@ -37,6 +33,7 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                 self.view.addSubview(button.make(x:CGFloat(215+(i*95)),y:180,width:80,height:80,back:UIColor.white,tag:i,_borderWidth:1.5,_cornerRadius:6,_text:"\(i)", _fontSize:50))
             }
         }
+    
         for i in 8...15{
               if i == 15 {
               self.view.addSubview(button.make(x:CGFloat(215+((i-8)*95)),y:310,width:80,height:80,back:UIColor.white,tag:i,_borderWidth:1.5,_cornerRadius:6,_text:"7+", _fontSize:50))
@@ -123,11 +120,10 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                 audioPlayerInstance.play()
             }else{
                 //ポップアップ表示
-                let ngalert = UIAlertController(title: "未入力があります", message: "", preferredStyle: .alert)
-                ngalert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
-                self.present(ngalert, animated: true, completion: {
+                let pop3 = MakePopUp()
+                self.present(pop3.alert(title: "未入力があります", _message: ""), animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                    ngalert.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
                     })
                 })
                 break

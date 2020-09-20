@@ -1,14 +1,10 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import Foundation
 import RealmSwift
-import CoreImage
-
 
 class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let myInputImage = CIImage(image: UIImage(named: "history")!)
     var addTimer = Timer()
     var timerCount = 0
     
@@ -16,17 +12,16 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"history"))
+        
         // 再生準備
         audioPlayerInstance.prepareToPlay()
         //クラスをインスタンス化
         let button = MakeButton()
-        let label = MakeLabel()
-
-        // UIImageViewを作成する.
-        myImageView = UIImageView(frame: CGRect(x: 0,y: 0,width: 1024,height: 768))
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
-        
+        let label = MakeLabel()        
         
         let scrollView = UIScrollView()
        

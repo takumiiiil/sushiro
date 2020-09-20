@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class makeStepper:UIStepper{
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+
     func make(xv:Int,yv:Int,wv:Int,hv:Int,f:Int,o:Int,o1:Int,o2:Double,ic:Int)->UIStepper{
         let stepper = UIStepper(frame: CGRect(x:CGFloat(xv), y: CGFloat(yv), width: CGFloat(wv), height: CGFloat(hv)))
         // 最小値, 最大値, 規定値の設定をする.
