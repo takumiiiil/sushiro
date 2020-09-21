@@ -72,6 +72,7 @@ extension MasterViewController: UITableViewDelegate {
                 }
             case "年代別来店割合":
                 if (indexPath.section==2){
+<<<<<<< HEAD
                     let alert = UIAlertController(title: "パスワードを入力して下さい", message: "", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: {
                         (action:UIAlertAction!) -> Void in
@@ -117,6 +118,10 @@ extension MasterViewController: UITableViewDelegate {
                    // アラートを画面に表示
                    self.present(alert, animated: true, completion: nil)
                    print("書き込んでるはず")
+=======
+                    let pop = MakePopPassWord()
+                    pop.make(title:"パスワードを入力して下さい",pass:"1234",transition: Test(),view:self)
+>>>>>>> 6b55bf3c8fdd60e340c3bd827dd8b06365437b48
                     appDelegate.viewType = "年代別来店割合"
                 }
             case "年代別平均皿数":

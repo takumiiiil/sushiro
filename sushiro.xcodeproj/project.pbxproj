@@ -19,6 +19,11 @@
 		33578C0A2515B52200DD5BAF /* InitGuestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C092515B52200DD5BAF /* InitGuestData.swift */; };
 		33578C0C2515B8E000DD5BAF /* InitAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C0B2515B8E000DD5BAF /* InitAppSetting.swift */; };
 		33578C0E2516CDDF00DD5BAF /* MakePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C0D2516CDDF00DD5BAF /* MakePicker.swift */; };
+		33578C1025182E1500DD5BAF /* MakeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C0F25182E1500DD5BAF /* MakeScrollView.swift */; };
+		33578C122518422400DD5BAF /* MakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C112518422400DD5BAF /* MakeCell.swift */; };
+		33578C1325184DA200DD5BAF /* movie03.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102325131DF600EC7320 /* movie03.mp4 */; };
+		33578C1425184DB300DD5BAF /* movie02.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102125131DF600EC7320 /* movie02.mp4 */; };
+		33578C1525184DB600DD5BAF /* movie01.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102225131DF600EC7320 /* movie01.mp4 */; };
 		E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */; };
 		E1204C2125130F7200274E5B /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2025130F7200274E5B /* AppSetting.swift */; };
 		E1204C2325130F8000274E5B /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2225130F8000274E5B /* AllData.swift */; };
@@ -90,6 +95,8 @@
 		33578C092515B52200DD5BAF /* InitGuestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitGuestData.swift; sourceTree = "<group>"; };
 		33578C0B2515B8E000DD5BAF /* InitAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitAppSetting.swift; sourceTree = "<group>"; };
 		33578C0D2516CDDF00DD5BAF /* MakePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePicker.swift; sourceTree = "<group>"; };
+		33578C0F25182E1500DD5BAF /* MakeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeScrollView.swift; sourceTree = "<group>"; };
+		33578C112518422400DD5BAF /* MakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCell.swift; sourceTree = "<group>"; };
 		E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
 		E1204C2025130F7200274E5B /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		E1204C2225130F8000274E5B /* AllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
@@ -214,6 +221,8 @@
 				E1204C322513102800274E5B /* MakeButton.swift */,
 				E1204C342513103800274E5B /* MakeSlider.swift */,
 				33578C0D2516CDDF00DD5BAF /* MakePicker.swift */,
+				33578C0F25182E1500DD5BAF /* MakeScrollView.swift */,
+				33578C112518422400DD5BAF /* MakeCell.swift */,
 			);
 			path = makeUI;
 			sourceTree = "<group>";
@@ -351,6 +360,9 @@
 				E1DEE13E250DCEB1001F32A6 /* Assets.xcassets in Resources */,
 				3333102725131E0100EC7320 /* button01b.mp3 in Resources */,
 				E1204C37251315E600274E5B /* Default-568h@2x.png in Resources */,
+				33578C1425184DB300DD5BAF /* movie02.mp4 in Resources */,
+				33578C1525184DB600DD5BAF /* movie01.mp4 in Resources */,
+				33578C1325184DA200DD5BAF /* movie03.mp4 in Resources */,
 				3333102925131E0100EC7320 /* button01a.mp3 in Resources */,
 				3333102825131E0100EC7320 /* button01c.mp3 in Resources */,
 			);
@@ -380,6 +392,7 @@
 				E1C8AEA9250DD186007B18DC /* First.swift in Sources */,
 				E1204C2F2513100300274E5B /* MakeLabel.swift in Sources */,
 				E1C8AEA6250DD186007B18DC /* Test.swift in Sources */,
+				33578C122518422400DD5BAF /* MakeCell.swift in Sources */,
 				E1C8AEA5250DD186007B18DC /* Call.swift in Sources */,
 				E1C8AE93250DD15C007B18DC /* Menu.swift in Sources */,
 				E1C8AEA3250DD186007B18DC /* MasterViewController.swift in Sources */,
@@ -387,6 +400,7 @@
 				E1204C352513103800274E5B /* MakeSlider.swift in Sources */,
 				E1C8AEA7250DD186007B18DC /* SplitViewController.swift in Sources */,
 				E1204C2D25130FF600274E5B /* ViewSetting.swift in Sources */,
+				33578C1025182E1500DD5BAF /* MakeScrollView.swift in Sources */,
 				E1204C332513102800274E5B /* MakeButton.swift in Sources */,
 				E1204C2325130F8000274E5B /* AllData.swift in Sources */,
 				E1204C2725130FC500274E5B /* MakeQrcode.swift in Sources */,

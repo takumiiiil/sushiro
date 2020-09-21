@@ -303,9 +303,8 @@ extension SplitViewController: UITableViewDataSource {
 
             for i in 0...9{
                 if indexPath.section==0 && indexPath.row == i{
-                    let generationLabel = label.make(x:200,y:20,width:30,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: dictionary[genArray[i]]!))■", _fontSize:30)
-                    generationLabel.textColor = colorArray[i]
-                    cell.accessoryView = generationLabel
+                    let cellItem = MakeCell()
+                    cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:30,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: dictionary[genArray[i]]!))■",_textColer:colorArray[i],_fontSize:30)
                 }
             }
             
@@ -359,9 +358,8 @@ extension SplitViewController: UITableViewDataSource {
                        if indexPath.section==0 && indexPath.row == i{
                         var ans:String = String(round((Double(dishDic[genArray[i]]!) / Double(countDic[genArray[i]]!)) * 10) / 10)
                         if ans == "nan" {ans = "0"}
-                        let generationLabel = label.make(x:200,y:20,width:40,height:35,back:UIColor.clear,_alpha:0.3,_text:"\(String(describing: ans))■",_fontSize:30)
-                           generationLabel.textColor = colorArray[i]
-                           cell.accessoryView = generationLabel
+                        let cellItem = MakeCell()
+                        cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:40,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: ans))■",_textColer:colorArray[i],_fontSize:30)
                        }
                    }
                    super.viewWillAppear(true)
@@ -389,35 +387,35 @@ extension SplitViewController: UITableViewDataSource {
                }
         
         if appDelegate.viewType == "realm" {
-            let label = MakeLabel()
+            let cellItem = MakeCell()
             let realm = try! Realm()
             let obj = realm.objects(guestData.self).last
             if indexPath.section==0 && indexPath.row == 0{
-                cell.accessoryView =  label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.inTime)", _fontSize:30)
+                cell.accessoryView =  cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.inTime)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 1{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.outTime)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.outTime)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 2{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.adultCount)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.adultCount)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 3{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.childCount)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.childCount)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 4{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.seatType)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.seatType)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 5{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.dish)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.dish)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 0{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.qrStatus)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.qrStatus)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 1{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.soundNum)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.soundNum)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 2{
-                cell.accessoryView = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.movieNum)", _fontSize:30)
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.movieNum)", _fontSize:30)
             }
         }
         
