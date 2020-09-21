@@ -1,7 +1,7 @@
-import Foundation
 import UIKit
 
 class makeQrcode:UIImageView{
+    
     func make(xv:Int,yv:Int,wv:Int,hv:Int,sum:String)->UIImageView{
         let qrImageView = UIImageView(frame: CGRect(x:CGFloat(xv), y: CGFloat(yv), width: CGFloat(wv), height: CGFloat(hv)))
         let str = sum
@@ -17,4 +17,5 @@ class makeQrcode:UIImageView{
         qrImageView.image = uiImage
         return(qrImageView)
     }
+    
 }

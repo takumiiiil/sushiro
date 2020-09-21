@@ -1,10 +1,7 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import Foundation
 import RealmSwift
-import CoreImage
-
 
 //グローバルにする必要ある
 struct Section2 {
@@ -98,7 +95,7 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             print("AVAudioPlayerインスタンス作成でエラー")
         }
         audioPlayerInstance.prepareToPlay()
-        audioPlayerInstance.volume = appDelegate.touchVolume//picker関連
+        audioPlayerInstance.volume = appDelegate.touchVolume
         
         // ViewContorller 背景色
         self.view.backgroundColor = UIColor.white
@@ -131,7 +128,8 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             // テキストを中央寄せにする
             label.textAlignment = NSTextAlignment.center
             view.backgroundColor = UIColor(red: 239 / 255, green: 239 / 255, blue: 244 / 255, alpha: 1)
-            tableView = UITableView(frame: CGRect(x:65, y: 0, width: screenWidth/2 + 200, height: screenHeight), style: .grouped)
+            tableView = UITableView(frame: CGRect(x:65, y: 0, width: screenWidth/2, height: screenHeight), style: .grouped)
+            // tableView = UITableView(frame: CGRect(x:65, y: 0, width: screenWidth/2+200, height: screenHeight), style: .grouped)
         }
         tableView.dataSource = self
         tableView.delegate = self
@@ -236,7 +234,8 @@ extension SplitViewController: UITableViewDataSource {
         }
         if appDelegate.viewType == "サウンド" {
             if indexPath.section==0 && indexPath.row == 0{
-                cell.accessoryView = pickerView1
+            let pk = MakePicker()
+                cell.accessoryView = pk.make(x: 0, y: 0, width: 200, height: 600, back:UIColor.white)//pickerView1
             }
             if indexPath.section==0 && indexPath.row == 1{
                 cell.accessoryView = pickerView2
@@ -304,9 +303,8 @@ extension SplitViewController: UITableViewDataSource {
 
             for i in 0...9{
                 if indexPath.section==0 && indexPath.row == i{
-                    let generationLabel = label.make(x:200,y:20,width:30,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: dictionary[genArray[i]]!))■", _fontSize:30)
-                    generationLabel.textColor = colorArray[i]
-                    cell.accessoryView = generationLabel
+                    let cellItem = MakeCell()
+                    cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:30,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: dictionary[genArray[i]]!))■",_textColer:colorArray[i],_fontSize:30)
                 }
             }
             
@@ -360,9 +358,8 @@ extension SplitViewController: UITableViewDataSource {
                        if indexPath.section==0 && indexPath.row == i{
                         var ans:String = String(round((Double(dishDic[genArray[i]]!) / Double(countDic[genArray[i]]!)) * 10) / 10)
                         if ans == "nan" {ans = "0"}
-                        let generationLabel = label.make(x:200,y:20,width:40,height:35,back:UIColor.clear,_alpha:0.3,_text:"\(String(describing: ans))■",_fontSize:30)
-                           generationLabel.textColor = colorArray[i]
-                           cell.accessoryView = generationLabel
+                        let cellItem = MakeCell()
+                        cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:40,height:35,back:UIColor.clear,_alpha:0.3, _text:"\(String(describing: ans))■",_textColer:colorArray[i],_fontSize:30)
                        }
                    }
                    super.viewWillAppear(true)
@@ -390,44 +387,35 @@ extension SplitViewController: UITableViewDataSource {
                }
         
         if appDelegate.viewType == "realm" {
-            let label = MakeLabel()
+            let cellItem = MakeCell()
             let realm = try! Realm()
             let obj = realm.objects(guestData.self).last
             if indexPath.section==0 && indexPath.row == 0{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.inTime)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView =  cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.inTime)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 1{
-                 let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.outTime)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.outTime)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 2{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.adultCount)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.adultCount)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 3{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.childCount)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.childCount)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 4{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.seatType)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.seatType)", _fontSize:30)
             }
             if indexPath.section==0 && indexPath.row == 5{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.dish)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(obj!.dish)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 0{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.qrStatus)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.qrStatus)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 1{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.soundNum)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.soundNum)", _fontSize:30)
             }
             if indexPath.section==1 && indexPath.row == 2{
-                let label3 = label.make(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.movieNum)", _fontSize:30)
-                cell.accessoryView = label3
+                cell.accessoryView = cellItem.makeLabel(x:200,y:20,width:300,height:30,back:UIColor.clear,_text:"\(appDelegate.movieNum)", _fontSize:30)
             }
         }
         

@@ -1,5 +1,7 @@
-import Foundation
+import UIKit
+
 class SliderClass: NSObject {
+    
     var title: String
     var subtitle: String
     var sliderMinimum: Float

@@ -1,28 +1,25 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import CoreImage
 import RealmSwift
 
-
 class First: UIViewController {
+    
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
-        
-        loadView()//videoplayerを破棄
         super.viewDidLoad()
-        audioPlayerInstance.prepareToPlay()
+        
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"first.jpeg"))
+        
+        //クラスをインスタンス化
         let button = MakeButton()
-        // 画像を設定する.
-        let myInputImage = CIImage(image: UIImage(named: "first.jpeg")!)
-        // ImageViewを.定義する.
-        var myImageView: UIImageView!
-        myImageView = UIImageView(frame: self.view.frame)
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
+        audioPlayerInstance.prepareToPlay()
+    
         //透明なボタンを作ってタップを反応させる
-        self.view.addSubview(button.make(x:0,y:0,width:1024,height:768,back:UIColor.clear,tag:0))
+        button.make(x:0,y:0,width:1024,height:768,back:UIColor.clear,tag:0,view:self)
      
     }
 

@@ -1,39 +1,35 @@
 import UIKit
 import AVFoundation//オーディオがらみ
 import AVKit
-import Foundation
-import CoreImage
 import RealmSwift
 
 class Call: UIViewController {
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    // 画像を設定する.
-    let myInputImage = CIImage(image: UIImage(named: "call.jpeg")!)
-    // ImageViewを.定義する.
-    var myImageView: UIImageView!
     var addTimer = Timer()
 
     override func viewDidLoad() {
-        loadView()//videoplayerを破棄
-        print("overfuncのloadviewはした")
         super.viewDidLoad()
        
+        //背景を設定
+        let background = MakeBackgroundImage()
+        self.view.addSubview(background.make(image:"call.jpeg"))
+        
+        //クラスをインスタンス化
         let button = MakeButton()
-        myImageView = UIImageView(frame: self.view.frame)
-        myImageView.image = UIImage(ciImage: myInputImage!)
-        self.view.addSubview(myImageView)
+
+        //UI作成
+        button.make(x:80,y:500,width:280,height:180,back:UIColor.white,tag:0,_borderWidth:1.5, _cornerRadius:6,_text:"会計", _fontSize:50,view:self)
+        button.make(x:380,y:500,width:280,height:180,back:UIColor.white,tag:1,_borderWidth:1.5, _cornerRadius:6,_text:"キャンセル", _fontSize:50,view:self)
+        button.make(x:680,y:500,width:280,height:180,back:UIColor.white,tag:2,_borderWidth:1.5, _cornerRadius:6,_text:"戻る", _fontSize:50,view:self)
+        
         if appDelegate.qrStatus == "bc"{
             let bc = makeBarcord()
             self.view.addSubview(bc.make(string: "12-34")!)
         }else{
-//            let qrc = makeQrcode()
-//            self.view.addSubview(qrc.make(sum: appDelegate.qr_string))
+            //            let qrc = makeQrcode()
+            //            self.view.addSubview(qrc.make(sum: appDelegate.qr_string))
         }
-
-        //ボタン作成
-        self.view.addSubview(button.make(x:80,y:500,width:280,height:180,back:UIColor.white,tag:0,_borderWidth:1.5, _cornerRadius:6,_text:"会計", _fontSize:50))
-        self.view.addSubview(button.make(x:380,y:500,width:280,height:180,back:UIColor.white,tag:1,_borderWidth:1.5, _cornerRadius:6,_text:"キャンセル", _fontSize:50))
-        self.view.addSubview(button.make(x:680,y:500,width:280,height:180,back:UIColor.white,tag:2,_borderWidth:1.5, _cornerRadius:6,_text:"戻る", _fontSize:50))
 
     }
     
