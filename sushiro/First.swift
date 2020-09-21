@@ -19,7 +19,7 @@ class First: UIViewController {
         audioPlayerInstance.prepareToPlay()
     
         //透明なボタンを作ってタップを反応させる
-        self.view.addSubview(button.make(x:0,y:0,width:1024,height:768,back:UIColor.clear,tag:0))
+        button.make(x:0,y:0,width:1024,height:768,back:UIColor.clear,tag:0,view:self)
      
     }
 

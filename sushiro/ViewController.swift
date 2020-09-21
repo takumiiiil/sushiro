@@ -30,9 +30,9 @@ class ViewController: UIViewController{
         for i in 0...3{
             for j in 0...2{
                 if i == 3{
-                    self.view.addSubview(button.make(x:CGFloat(80+j*300),y:645,width:280,height:110,back:UIColor.white,tag:i*3+j,_borderWidth:1.5,_cornerRadius:10,_text:menuArray[i][j],_fontSize:35))
+                    button.make(x:CGFloat(80+j*300),y:645,width:280,height:110,back:UIColor.white,tag:i*3+j,_borderWidth:1.5,_cornerRadius:10,_text:menuArray[i][j],_fontSize:35,view:self)
                 }else{
-                   self.view.addSubview(button.make(x:CGFloat(80+j*300),y:CGFloat(160+i*140),width:280,height:180,back:UIColor.clear,tag:i*3+j,_pic:menuArray[i][j]))
+                   button.make(x:CGFloat(80+j*300),y:CGFloat(160+i*140),width:280,height:180,back:UIColor.clear,tag:i*3+j,_pic:menuArray[i][j],view:self)
                 }
             }
         }
@@ -72,6 +72,7 @@ class ViewController: UIViewController{
     @objc func play(){
         //これでタイマー切
         addTimer.invalidate()
+        let button = MakeButton()
         // パスからassetを生成.
         let path = Bundle.main.path(forResource:  "\(appDelegate.movieNum)", ofType: "mp4")
         let fileURL = NSURL(fileURLWithPath: path!)
@@ -102,10 +103,8 @@ class ViewController: UIViewController{
         // 動画が再生し終わったことを監視する設定
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
         //透明なボタンを作ってタップを反応させる
-        let button: UIButton = UIButton(frame: CGRect(x:CGFloat(0), y:CGFloat(0), width: CGFloat(1024), height: CGFloat(768)))
-        button.tag = 20
-        button.addTarget(self, action: #selector(selection(sender:)), for: .touchUpInside)
-        self.view.addSubview(button)
+        button.make(x:0,y:0,width:view.frame.width,height:view.frame.height,back:UIColor.clear,tag:20,view:self)
+        
         videoPlayer.play()
         
     }

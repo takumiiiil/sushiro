@@ -1,11 +1,10 @@
 import UIKit
 
-//ラベル作成class
-class MakeLabel:UILabel{
+class MakeCell:UILabel{
     
-    func make(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,
+    func makeLabel(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,
               _borderWidth:CGFloat=0.0,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
-              _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_adjustsFontSizeToFitWidth:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center,view:AnyObject){
+              _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_adjustsFontSizeToFitWidth:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center)->UILabel{
         
         //必須
         let label = UILabel(frame: CGRect(x:x, y:y, width:width, height:height))
@@ -24,7 +23,7 @@ class MakeLabel:UILabel{
         label.font = label.font.withSize(_fontSize)
         label.adjustsFontSizeToFitWidth = _adjustsFontSizeToFitWidth
         label.textAlignment = _alignment
-        view.view.addSubview(label)
+        return label
     }
     
 }
