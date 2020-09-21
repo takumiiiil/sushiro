@@ -23,6 +23,7 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let button = MakeButton()
         let label = MakeLabel()        
         
+        //スクロールビュー作成
         let scrollView = MakeScrollView()
         scrollView.make(x:0,y:150,width:Int(view.frame.width/2),height:540,contentHeight:50*(appDelegate.history.count+5),view: self)
                
