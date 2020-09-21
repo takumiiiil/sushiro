@@ -34,7 +34,7 @@ class First: UIViewController {
                 try! realm.write {
                     obj?.inTime = dateAndTime
                 }
-                self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: ViewController())
                 audioPlayerInstance.play()
             default:break
         }

@@ -82,7 +82,7 @@ class Order: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let view = viewSetting()
         switch sender.tag{
         case 1://戻ボタン
-            self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: ViewController())
             audioPlayerInstance.play()
         case 2:// 一種類目+ボタン
             i = 0
@@ -182,7 +182,7 @@ class Order: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             audioPlayerInstance.play()
             //遅延処理
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: ViewController())
             }
         default:break
         }

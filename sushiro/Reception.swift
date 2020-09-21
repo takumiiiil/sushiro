@@ -130,7 +130,8 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         }
      
         button.make(x:750,y:570,width:200,height:60,back:UIColor.white,tag:22,_borderWidth:1.5,_cornerRadius:6, _text:"\(generation)", _fontSize:25,_font:"Bold",view:self)
-      
+
+        
         //年齢層終わり
         func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
@@ -187,7 +188,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                        inputNum = tenkeyHandle(inputNum: inputNum)
                        audioPlayerInstance.play()
         case 20://戻るボタン
-            self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: ViewController())
             audioPlayerInstance.play()
         case 21://Enter
             if inputNum == ""{break}
@@ -250,7 +251,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             audioPlayerInstance.play()
             //遅延
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.present(view.viewSet(view: Ticket(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: ViewController())
             }
         case 22:
                        //✗

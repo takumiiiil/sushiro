@@ -116,7 +116,7 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                 appDelegate.maskFlag = 100
                 appDelegate.maskFlag2 = 100
                 appDelegate.maskFlag3 = 100
-                self.present(view.viewSet(view: First(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: First())
                 audioPlayerInstance.play()
             }else{
                 //ポップアップ表示
@@ -130,7 +130,7 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             appDelegate.maskFlag = 100
             appDelegate.maskFlag2 = 100
             appDelegate.maskFlag3 = 100
-            self.present(view.viewSet(view: Ticket(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Ticket())
         default:break
         }
     }

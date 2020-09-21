@@ -183,7 +183,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         case 53://注文ボタン
             appDelegate.counter = 0
             appDelegate.tagFlag2 = 0 //tag2の初期化
-            self.present(view.viewSet(view: Order(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Order())
             audioPlayerInstance.play()
         case 13://商品名(1段目)
             appDelegate.counter = 0
