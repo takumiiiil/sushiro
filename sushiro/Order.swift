@@ -56,10 +56,10 @@ class Order: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         //数量作成
         for i in 0...2{label.make(x:310,y:CGFloat(280+i*60),width:60,height:60,back:UIColor.clear,_borderWidth:1.5,_text:"\(appDelegate.box[i].qty)",_fontSize:50,_alignment:NSTextAlignment.center,view:self)}
         //上部タグ作成
-        for k in 0...8{button.make(x:CGFloat(5+(80*k)),y:5,width:80,height:70,back:UIColor.white,tag:16+k,_borderWidth:1.5, _cornerRadius:6,_text:appDelegate.tag1[k], _fontSize:20,view:self)}
+        for k in 0...8{button.make(x:CGFloat(5+(80*k)),y:5,width:80,height:70,back:UIColor.white,tag:16+k,_borderWidth:1.5, _cornerRadius:6,_text:MenuData().tag1[k], _fontSize:20,view:self)}
         //下部タグ作成
         let tag_flag1 = appDelegate.choise
-        for d in 0..<appDelegate.data[tag_flag1].count{button.make(x:CGFloat(5+(115*d)),y:90,width:110,height:70,back:UIColor.white,tag:25+d,_borderWidth:1.5, _cornerRadius:6,_text:appDelegate.tag2[tag_flag1][d], _fontSize:25,view:self)}
+        for d in 0..<MenuData().data[tag_flag1].count{button.make(x:CGFloat(5+(115*d)),y:90,width:110,height:70,back:UIColor.white,tag:25+d,_borderWidth:1.5, _cornerRadius:6,_text:MenuData().tag2[tag_flag1][d], _fontSize:25,view:self)}
         
         button.make(x:30,y:700,width:100,height:50,back:UIColor.white,tag:1,_borderWidth:1.5, _cornerRadius:6,_text:"戻る", _fontSize:20,view:self)
         button.make(x:550,y:210,width:170,height:100,back:UIColor.white,tag:18,_borderWidth:1.5, _cornerRadius:6,_text:"注文する", _fontSize:20,view:self)

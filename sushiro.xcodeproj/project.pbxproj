@@ -11,7 +11,6 @@
 		33187EC025134CD800D4BD18 /* SettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EBF25134CD800D4BD18 /* SettingDelegate.swift */; };
 		33187EC22513584700D4BD18 /* MakePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EC12513584700D4BD18 /* MakePopUp.swift */; };
 		33187EC425142B0200D4BD18 /* MakePopPassWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EC325142B0200D4BD18 /* MakePopPassWord.swift */; };
-		33187EC6251459A200D4BD18 /* SelfProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33187EC5251459A200D4BD18 /* SelfProtocol.swift */; };
 		3333102725131E0100EC7320 /* button01b.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102425131E0000EC7320 /* button01b.mp3 */; };
 		3333102825131E0100EC7320 /* button01c.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102525131E0100EC7320 /* button01c.mp3 */; };
 		3333102925131E0100EC7320 /* button01a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102625131E0100EC7320 /* button01a.mp3 */; };
@@ -24,6 +23,11 @@
 		33578C1325184DA200DD5BAF /* movie03.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102325131DF600EC7320 /* movie03.mp4 */; };
 		33578C1425184DB300DD5BAF /* movie02.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102125131DF600EC7320 /* movie02.mp4 */; };
 		33578C1525184DB600DD5BAF /* movie01.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3333102225131DF600EC7320 /* movie01.mp4 */; };
+		33578C1825185E2800DD5BAF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1625185E2800DD5BAF /* RealmSwift.framework */; };
+		33578C1925185E2800DD5BAF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1625185E2800DD5BAF /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33578C1A25185E2800DD5BAF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1725185E2800DD5BAF /* Realm.framework */; };
+		33578C1B25185E2800DD5BAF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1725185E2800DD5BAF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		33578C1E25187A9D00DD5BAF /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C1D25187A9C00DD5BAF /* MenuData.swift */; };
 		E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */; };
 		E1204C2125130F7200274E5B /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2025130F7200274E5B /* AppSetting.swift */; };
 		E1204C2325130F8000274E5B /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2225130F8000274E5B /* AllData.swift */; };
@@ -38,10 +42,6 @@
 		E1204C352513103800274E5B /* MakeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C342513103800274E5B /* MakeSlider.swift */; };
 		E1204C37251315E600274E5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1204C36251315E500274E5B /* Default-568h@2x.png */; };
 		E1204C392513177300274E5B /* GuestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C382513177300274E5B /* GuestData.swift */; };
-		E16BA60C25135421001CCAC0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BA60A25135421001CCAC0 /* RealmSwift.framework */; };
-		E16BA60D25135421001CCAC0 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E16BA60A25135421001CCAC0 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E16BA60E25135421001CCAC0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BA60B25135421001CCAC0 /* Realm.framework */; };
-		E16BA60F25135421001CCAC0 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E16BA60B25135421001CCAC0 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1C8AE93250DD15C007B18DC /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8AE92250DD15C007B18DC /* Menu.swift */; };
 		E1C8AE9F250DD186007B18DC /* Accounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8AE94250DD186007B18DC /* Accounting.swift */; };
 		E1C8AEA0250DD186007B18DC /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8AE95250DD186007B18DC /* Ticket.swift */; };
@@ -60,14 +60,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E16BA61025135421001CCAC0 /* Embed Frameworks */ = {
+		33578C1C25185E2800DD5BAF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E16BA60F25135421001CCAC0 /* Realm.framework in Embed Frameworks */,
-				E16BA60D25135421001CCAC0 /* RealmSwift.framework in Embed Frameworks */,
+				33578C1B25185E2800DD5BAF /* Realm.framework in Embed Frameworks */,
+				33578C1925185E2800DD5BAF /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,6 @@
 		33187EBF25134CD800D4BD18 /* SettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDelegate.swift; sourceTree = "<group>"; };
 		33187EC12513584700D4BD18 /* MakePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePopUp.swift; sourceTree = "<group>"; };
 		33187EC325142B0200D4BD18 /* MakePopPassWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePopPassWord.swift; sourceTree = "<group>"; };
-		33187EC5251459A200D4BD18 /* SelfProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfProtocol.swift; sourceTree = "<group>"; };
 		3333102125131DF600EC7320 /* movie02.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie02.mp4; path = "../../../uobei/魚べい素材/映像/movie02.mp4"; sourceTree = "<group>"; };
 		3333102225131DF600EC7320 /* movie01.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie01.mp4; path = "../../../uobei/魚べい素材/映像/movie01.mp4"; sourceTree = "<group>"; };
 		3333102325131DF600EC7320 /* movie03.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = movie03.mp4; path = "../../../uobei/魚べい素材/映像/movie03.mp4"; sourceTree = "<group>"; };
@@ -97,6 +96,9 @@
 		33578C0D2516CDDF00DD5BAF /* MakePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePicker.swift; sourceTree = "<group>"; };
 		33578C0F25182E1500DD5BAF /* MakeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeScrollView.swift; sourceTree = "<group>"; };
 		33578C112518422400DD5BAF /* MakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCell.swift; sourceTree = "<group>"; };
+		33578C1625185E2800DD5BAF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = sushiro/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		33578C1725185E2800DD5BAF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = sushiro/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		33578C1D25187A9C00DD5BAF /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
 		E1204C2025130F7200274E5B /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		E1204C2225130F8000274E5B /* AllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
@@ -139,8 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16BA60E25135421001CCAC0 /* Realm.framework in Frameworks */,
-				E16BA60C25135421001CCAC0 /* RealmSwift.framework in Frameworks */,
+				33578C1A25185E2800DD5BAF /* Realm.framework in Frameworks */,
+				33578C1825185E2800DD5BAF /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +170,7 @@
 		E1204C1425130EAE00274E5B /* data */ = {
 			isa = PBXGroup;
 			children = (
+				33578C1D25187A9C00DD5BAF /* MenuData.swift */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -176,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */,
-				33187EC5251459A200D4BD18 /* SelfProtocol.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -245,7 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				33187EB5251325BA00D4BD18 /* Realm.framework */,
+				33578C1725185E2800DD5BAF /* Realm.framework */,
 				33187EB6251325BA00D4BD18 /* RealmSwift.framework */,
+				33578C1625185E2800DD5BAF /* RealmSwift.framework */,
 				E1204C36251315E500274E5B /* Default-568h@2x.png */,
 				E1DEE133250DCEAE001F32A6 /* sushiro */,
 				E1DEE132250DCEAE001F32A6 /* Products */,
@@ -308,7 +312,7 @@
 				E1DEE12D250DCEAE001F32A6 /* Sources */,
 				E1DEE12E250DCEAE001F32A6 /* Frameworks */,
 				E1DEE12F250DCEAE001F32A6 /* Resources */,
-				E16BA61025135421001CCAC0 /* Embed Frameworks */,
+				33578C1C25185E2800DD5BAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -387,7 +391,6 @@
 				E1C8AEA2250DD186007B18DC /* Reception.swift in Sources */,
 				E1204C2525130FAB00274E5B /* DateExtention.swift in Sources */,
 				E1204C2B25130FE300274E5B /* MakeSound.swift in Sources */,
-				33187EC6251459A200D4BD18 /* SelfProtocol.swift in Sources */,
 				E1C8AEA4250DD186007B18DC /* History.swift in Sources */,
 				E1C8AEA9250DD186007B18DC /* First.swift in Sources */,
 				E1204C2F2513100300274E5B /* MakeLabel.swift in Sources */,
@@ -396,6 +399,7 @@
 				E1C8AEA5250DD186007B18DC /* Call.swift in Sources */,
 				E1C8AE93250DD15C007B18DC /* Menu.swift in Sources */,
 				E1C8AEA3250DD186007B18DC /* MasterViewController.swift in Sources */,
+				33578C1E25187A9D00DD5BAF /* MenuData.swift in Sources */,
 				E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */,
 				E1204C352513103800274E5B /* MakeSlider.swift in Sources */,
 				E1C8AEA7250DD186007B18DC /* SplitViewController.swift in Sources */,
@@ -538,24 +542,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "sushiro/Carthageのコピー2/Build/iOS/RealmSwift.framework sushiro/Carthageのコピー2/Build/iOS/Realm.framework";
+				DEVELOPMENT_ASSET_PATHS = "sushiro/Carthage/Build/iOS/RealmSwift.framework sushiro/Carthage/Build/iOS/Realm.framework";
 				DEVELOPMENT_TEAM = PN9WLUA379;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/sushiro/Carthageのコピー/Build/iOS",
 					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/sushiro/Carthageのコピー2/Build/iOS",
+					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = sushiro/Info.plist;
 				INSTALL_PATH = /Application;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takuniwo.sushiro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -565,24 +569,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "sushiro/Carthageのコピー2/Build/iOS/RealmSwift.framework sushiro/Carthageのコピー2/Build/iOS/Realm.framework";
+				DEVELOPMENT_ASSET_PATHS = "sushiro/Carthage/Build/iOS/RealmSwift.framework sushiro/Carthage/Build/iOS/Realm.framework";
 				DEVELOPMENT_TEAM = PN9WLUA379;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/sushiro/Carthageのコピー/Build/iOS",
 					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/sushiro/Carthageのコピー2/Build/iOS",
+					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/sushiro/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = sushiro/Info.plist;
 				INSTALL_PATH = /Application;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takuniwo.sushiro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

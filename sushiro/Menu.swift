@@ -11,7 +11,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     //スワイプの最大
     func tag_max(choise:Int)->Int{
         var tag_max = 0
-        tag_max = appDelegate.data[choise].count
+        tag_max = MenuData().data[choise].count
         return (tag_max)
     }
     // レフトスワイプ時に実行される
@@ -52,17 +52,17 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let label = MakeLabel()
         
         //写真ボタン作成
-        for d in 0..<appDelegate.data[tag_flag1][appDelegate.tagFlag2].count{
+        for d in 0..<MenuData().data[tag_flag1][appDelegate.tagFlag2].count{
             var e = 0
             if d <= 2{e=0}else{e=1}
-            button.make(x:CGFloat(30+(220*d)-(660*e)),y:CGFloat(225+(220*e)),width:200,height:200,back:UIColor.clear,tag:0+d,_pic:appDelegate.data[tag_flag1][appDelegate.tagFlag2][d].pic, _fontSize:20,view:self)
+            button.make(x:CGFloat(30+(220*d)-(660*e)),y:CGFloat(225+(220*e)),width:200,height:200,back:UIColor.clear,tag:0+d,_pic:MenuData().data[tag_flag1][appDelegate.tagFlag2][d].pic, _fontSize:20,view:self)
         }
         //共通ボタン作成
         button.make(x:30,y:700,width:100,height:50,back:UIColor.white,tag:50, _borderWidth:1.5,_cornerRadius:6,_text:"戻る", _fontSize:50,view:self)
         button.make(x:650,y:700,width:100,height:50,back:UIColor.white,tag:53, _borderWidth:1.5,_cornerRadius:6,_text:"注文", _fontSize:50,view:self)
         button.make(x:950,y:290,width:60,height:60,back:UIColor.white,tag:51, _borderWidth:1.5,_cornerRadius:6,_text:"➕", _fontSize:50,view:self)
         button.make(x:790,y:290,width:60,height:60,back:UIColor.white,tag:52, _borderWidth:1.5,_cornerRadius:6,_text:"➖", _fontSize:50,view:self)
-     
+        
         //商品名（1段目)
         if appDelegate.box[0].name == ""{
         }else{button.make(x:750,y:450,width:200,height:60,back:UIColor.clear,tag:13, _text:"\(appDelegate.box[0].name)",_fontSize:35,view:self)}
@@ -74,13 +74,13 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         }else{button.make(x:750,y:570,width:200,height:60,back:UIColor.clear,tag:15, _text:"\(appDelegate.box[2].name)",_fontSize:35,view:self)}
         
         //tag1用ボタンの作成
-        for k in 0...8{button.make(x:CGFloat(5+(80*k)),y:5,width:80,height:70,back:UIColor.white,tag:16+k,_borderWidth:1.5, _cornerRadius:6,_text:appDelegate.tag1[k], _fontSize:20,view:self)}
+        for k in 0...8{button.make(x:CGFloat(5+(80*k)),y:5,width:80,height:70,back:UIColor.white,tag:16+k,_borderWidth:1.5, _cornerRadius:6,_text:MenuData().tag1[k], _fontSize:20,view:self)}
         //tag1 選択ラベル
         let r1 = (appDelegate.choise*80)
         label.make(x:CGFloat(5+r1),y:5,width:80,height:70,back:UIColor.black,_alpha:0.3, _fontSize:50,view:self)
         
         //tag2ボタン(tag2がある物だけ作成)
-        for d in 0..<appDelegate.data[tag_flag1].count{button.make(x:CGFloat(5+(115*d)),y:90,width:110,height:70,back:UIColor.white,tag:25+d,_borderWidth:1.5, _cornerRadius:6,_text:appDelegate.tag2[tag_flag1][d], _fontSize:25,view:self)}
+        for d in 0..<MenuData().data[tag_flag1].count{button.make(x:CGFloat(5+(115*d)),y:90,width:110,height:70,back:UIColor.white,tag:25+d,_borderWidth:1.5, _cornerRadius:6,_text:MenuData().tag2[tag_flag1][d], _fontSize:25,view:self)}
         //tag2 選択ラベル
         let r2 = (appDelegate.tagFlag2*115)
         label.make(x:CGFloat(5+r2),y:90,width:110,height:70,back:UIColor.black,_alpha:0.3, _fontSize:50,view:self)
@@ -90,7 +90,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         //数量用（1段目)
         label.make(x:960,y:450,width:60,height:60,back:UIColor.clear,_text:"\(appDelegate.box[0].qty)",_fontSize:50,view:self)
         //数量用（2段目)
-        label.make(x:960,y:510,width:60,height:60,back:UIColor.clear,_text:"\(appDelegate.box[1].qty)",_fontSize:5,view:self)
+        label.make(x:960,y:510,width:60,height:60,back:UIColor.clear,_text:"\(appDelegate.box[1].qty)",_fontSize:50,view:self)
         //数量用（3段目)
         label.make(x:960,y:570,width:60,height:60,back:UIColor.clear,_text:"\(appDelegate.box[2].qty)",_fontSize:50,view:self)
         
@@ -144,7 +144,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         }
         switch sender.tag{
         case k://写真ボタンを押した時
-            appDelegate.st(sn:appDelegate.data[tag_flag1][appDelegate.tagFlag2][k].name,pn:appDelegate.data[tag_flag1][appDelegate.tagFlag2][k].pic)
+            appDelegate.st(sn:MenuData().data[tag_flag1][appDelegate.tagFlag2][k].name,pn:MenuData().data[tag_flag1][appDelegate.tagFlag2][k].pic)
             loadView()
             viewDidLoad()
             audioPlayerInstance.play()
@@ -159,7 +159,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             if appDelegate.box[appDelegate.counter].qty < 4{
                 appDelegate.box[appDelegate.counter].qty =  appDelegate.box[appDelegate.counter].qty+1
                 viewDidLoad()
-            audioPlayerInstance.play()
+                audioPlayerInstance.play()
             }else if appDelegate.box[appDelegate.counter].qty == 4{
                 // 画像を設定する.
                 let myInputImage = CIImage(image: UIImage(named: "over.jpeg")!)
@@ -190,22 +190,22 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             appDelegate.countType[0].now = "on"
             appDelegate.countType[1].now = "off"
             appDelegate.countType[2].now = "off"
-            label.make(x:752,y:445,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[2].qty)", _fontSize:50,view:self)
+            label.make(x:752,y:445,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[0].qty)",view:self)
             viewDidLoad()
         case 14://商品名(2段目)
             appDelegate.counter = 1
             appDelegate.countType[0].now = "off"
             appDelegate.countType[1].now = "on"
             appDelegate.countType[2].now = "off"
-            label.make(x:752,y:505,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[2].qty)", _fontSize:50,view:self)
-           
+            label.make(x:752,y:505,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[1].qty)",view:self)
+            
             viewDidLoad()
         case 15://商品名(3段目)
             appDelegate.counter = 2
             appDelegate.countType[0].now = "off"
             appDelegate.countType[1].now = "off"
             appDelegate.countType[2].now = "on"
-            label.make(x:752,y:5655,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[2].qty)", _fontSize:50,view:self)
+            label.make(x:752,y:5655,width:212,height:60,back:UIColor.black,_alpha:0.5, _text:"\(appDelegate.box[2].qty)",view:self)
             viewDidLoad()
         case j://tag1
             appDelegate.choise = j-16
@@ -222,6 +222,3 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         // Dispose of any resources that can be recreated.
     }
 }
-
-
-

@@ -26,7 +26,7 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         //スクロールビュー作成
         let scrollView = MakeScrollView()
         scrollView.make(x:0,y:150,width:Int(view.frame.width/2),height:540,contentHeight:50*(appDelegate.history.count+5),view: self)
-               
+            
         scrollView.makeLabel(x:40,y:15,width:300,height:40,back:UIColor.clear,_text:"商品名",_fontSize:35,view: self)
         scrollView.makeLabel(x:420,y:15,width:80,height:40,back:UIColor.clear,_text:"数量",_fontSize:35,view: self)
         
@@ -42,9 +42,9 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         scrollView.makeLabel(x:40,y:CGFloat(Int(scrollView.contentSize.height)-50),width:80,height:40,back:UIColor.clear,_text:"合計",_fontSize:35,_alignment:NSTextAlignment.left,view: self)
        
         //ボタン作成
-        button.make(x:750,y:600,width:100,height:50,back:UIColor.white,tag:0, _borderWidth:1.5,_cornerRadius:6,_text:"戻る",_adjustsFontSizeToFitWidth:true,view: self)
-         button.make(x:700,y:250,width:200,height:50,back:UIColor.white,tag:1, _borderWidth:1.5,_cornerRadius:6,_text:"スタッフ呼出",_adjustsFontSizeToFitWidth:true,view: self)
-         button.make(x:700,y:500,width:200,height:50,back:UIColor.white,tag:2, _borderWidth:1.5,_cornerRadius:6,_text:"会計に進む",_adjustsFontSizeToFitWidth:true,view: self)
+        button.make(x:750,y:600,width:100,height:50,back:UIColor.white,tag:0, _borderWidth:1.5,_cornerRadius:6,_text:"戻る",view: self)
+         button.make(x:700,y:250,width:200,height:50,back:UIColor.white,tag:1, _borderWidth:1.5,_cornerRadius:6,_text:"スタッフ呼出",view: self)
+         button.make(x:700,y:500,width:200,height:50,back:UIColor.white,tag:2, _borderWidth:1.5,_cornerRadius:6,_text:"会計に進む",view: self)
         
         func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()

@@ -44,12 +44,8 @@ class SplitViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var label = UILabel()
     private var tableView = UITableView()
     private var sections = Section2.make()
-    let dataList1 = [
-        "button01a","button01b","button01c"
-    ]
-    let dataList2 = [
-        "movie01","movie02","movie03"
-    ]
+    let dataList1 = ["button01a","button01b","button01c"]
+    let dataList2 = ["movie01","movie02","movie03"]
     
     //いじってみます
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -285,7 +281,7 @@ extension SplitViewController: UITableViewDataSource {
         
         if appDelegate.viewType == "年代別来店割合"{
             let realm = try! Realm()
-            let label = MakeLabel()
+           
             let results = realm.objects(allData.self)
             var dictionary : [String:Int] = ["12歳以下男性":0,"12歳以下女性":0,"13-19歳男性":0,"13-19歳女性":0,"20-29歳男性":0,"20-29歳女性":0,"30-49歳男性":0,"30-49歳女性":0,"50歳以上男性":0,"50歳以上女性":0]
             let genArray : [String] = ["12歳以下男性","12歳以下女性","13-19歳男性","13-19歳女性","20-29歳男性","20-29歳女性","30-49歳男性","30-49歳女性","50歳以上男性","50歳以上女性"]
@@ -336,7 +332,6 @@ extension SplitViewController: UITableViewDataSource {
         if appDelegate.viewType == "年代別平均皿数"{
             let realm = try! Realm()
             var nilCou = 0
-             let label = MakeLabel()
             let results = realm.objects(allData.self)
             var countDic : [String:Int] = ["12歳以下男性":0,"12歳以下女性":0,"13-19歳男性":0,"13-19歳女性":0,"20-29歳男性":0,"20-29歳女性":0,"30-49歳男性":0,"30-49歳女性":0,"50歳以上男性":0,"50歳以上女性":0]
             var dishDic : [String:Int] = ["12歳以下男性":0,"12歳以下女性":0,"13-19歳男性":0,"13-19歳女性":0,"20-29歳男性":0,"20-29歳女性":0,"30-49歳男性":0,"30-49歳女性":0,"50歳以上男性":0,"50歳以上女性":0]

@@ -72,56 +72,10 @@ extension MasterViewController: UITableViewDelegate {
                 }
             case "年代別来店割合":
                 if (indexPath.section==2){
-<<<<<<< HEAD
-                    let alert = UIAlertController(title: "パスワードを入力して下さい", message: "", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: {
-                        (action:UIAlertAction!) -> Void in
-                       // OKを押した時入力されていたテキストを表示
-                        if let textFields = alert.textFields {
-                            // アラートに含まれるすべてのテキストフィールドを調べる
-                            for textField in textFields {
-                                if textField.text! == "1234"{
-                                       //appDelegate.viewType = "年代別来店割合"
-                                       view.viewSet(view: self, transition: Test())
-                                }else if textField.text! != "1234"{
-                                    let ngalert = UIAlertController(title: "パスワードが違います", message: "", preferredStyle: .alert)
-                                    ngalert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
-                                    // アラート表示
-                                    self.present(ngalert, animated: true, completion: {
-                                        // アラートを閉じる
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                                            ngalert.dismiss(animated: true, completion: nil)
-                                        })
-                                    })
-                                }
-                            }
-                        }
-                   })
-                   alert.addAction(okAction)
-                   
-                   // キャンセルボタンの設定
-                   let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                   alert.addAction(cancelAction)
-                   
-                   // テキストフィールドを追加
-                   alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
-                       textField.isSecureTextEntry = true
-                   })
-                   
-                   // 複数追加したいならその数だけ書く
-                   // alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
-                   //     textField.placeholder = "テキスト"
-                   // })
-                   
-                   alert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生
-                   
-                   // アラートを画面に表示
-                   self.present(alert, animated: true, completion: nil)
-                   print("書き込んでるはず")
-=======
+                    
                     let pop = MakePopPassWord()
                     pop.make(title:"パスワードを入力して下さい",pass:"1234",transition: Test(),view:self)
->>>>>>> 6b55bf3c8fdd60e340c3bd827dd8b06365437b48
+
                     appDelegate.viewType = "年代別来店割合"
                 }
             case "年代別平均皿数":

@@ -22,14 +22,6 @@ class Call: UIViewController {
         button.make(x:80,y:500,width:280,height:180,back:UIColor.white,tag:0,_borderWidth:1.5, _cornerRadius:6,_text:"会計", _fontSize:50,view:self)
         button.make(x:380,y:500,width:280,height:180,back:UIColor.white,tag:1,_borderWidth:1.5, _cornerRadius:6,_text:"キャンセル", _fontSize:50,view:self)
         button.make(x:680,y:500,width:280,height:180,back:UIColor.white,tag:2,_borderWidth:1.5, _cornerRadius:6,_text:"戻る", _fontSize:50,view:self)
-        
-        if appDelegate.qrStatus == "bc"{
-            let bc = makeBarcord()
-            self.view.addSubview(bc.make(string: "12-34")!)
-        }else{
-            //            let qrc = makeQrcode()
-            //            self.view.addSubview(qrc.make(sum: appDelegate.qr_string))
-        }
 
     }
     

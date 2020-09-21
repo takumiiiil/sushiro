@@ -63,14 +63,10 @@ class Ticket: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let view = viewSetting()
         switch sender.tag{
         case 0:
-
-//            MakePopUp().alert(title: "OK", view: self)
             view.viewSet(view: self, transition: Accounting())
             audioPlayerInstance.play()
         case 1:
-//            MakePopPassWord().make(title:"fasd",pass:"123",transition: Accounting(),view:self)
             view.viewSet(view: self, transition: Accounting())
-
             audioPlayerInstance.play()
         default:break
         }
