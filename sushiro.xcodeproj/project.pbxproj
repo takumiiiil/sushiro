@@ -28,6 +28,7 @@
 		33578C1A25185E2800DD5BAF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1725185E2800DD5BAF /* Realm.framework */; };
 		33578C1B25185E2800DD5BAF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1725185E2800DD5BAF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		33578C1E25187A9D00DD5BAF /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C1D25187A9C00DD5BAF /* MenuData.swift */; };
+		33578C202518956800DD5BAF /* MakeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C1F2518956800DD5BAF /* MakeCalculator.swift */; };
 		E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */; };
 		E1204C2125130F7200274E5B /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2025130F7200274E5B /* AppSetting.swift */; };
 		E1204C2325130F8000274E5B /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2225130F8000274E5B /* AllData.swift */; };
@@ -99,6 +100,7 @@
 		33578C1625185E2800DD5BAF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = sushiro/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		33578C1725185E2800DD5BAF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = sushiro/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		33578C1D25187A9C00DD5BAF /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		33578C1F2518956800DD5BAF /* MakeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCalculator.swift; sourceTree = "<group>"; };
 		E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
 		E1204C2025130F7200274E5B /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		E1204C2225130F8000274E5B /* AllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				33187EC12513584700D4BD18 /* MakePopUp.swift */,
 				33187EC325142B0200D4BD18 /* MakePopPassWord.swift */,
 				33578C0425159C3100DD5BAF /* MakeBackgroundImage.swift */,
+				33578C1F2518956800DD5BAF /* MakeCalculator.swift */,
 			);
 			name = originalMethod;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				E1204C2325130F8000274E5B /* AllData.swift in Sources */,
 				E1204C2725130FC500274E5B /* MakeQrcode.swift in Sources */,
 				E1204C2125130F7200274E5B /* AppSetting.swift in Sources */,
+				33578C202518956800DD5BAF /* MakeCalculator.swift in Sources */,
 				E1204C312513101600274E5B /* MakeStepper.swift in Sources */,
 				E1C8AE9F250DD186007B18DC /* Accounting.swift in Sources */,
 				33578C0525159C3100DD5BAF /* MakeBackgroundImage.swift in Sources */,

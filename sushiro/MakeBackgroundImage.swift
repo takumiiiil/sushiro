@@ -1,6 +1,5 @@
 import UIKit
 
-//ラベル作成class
 class MakeBackgroundImage:UIImageView{
     
     func make(image:String="")->UIImageView{
