@@ -129,11 +129,11 @@ class ViewController: UIViewController{
             audioPlayerInstance.play()
         case 10:
             addTimer.invalidate()
-            self.present(view.viewSet(view: History(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: History())
             audioPlayerInstance.play()
         case 11:
             addTimer.invalidate()
-            self.present(view.viewSet(view: Call(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Call())
             audioPlayerInstance.play()
         case 20://動画再生中のタップ
             addTimer.invalidate()
@@ -143,7 +143,7 @@ class ViewController: UIViewController{
         case k://メニュー
             appDelegate.choise = k
             addTimer.invalidate()
-            self.present(view.viewSet(view: Menu(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Menu())
             audioPlayerInstance.play()
         default:break
         }
@@ -160,6 +160,4 @@ class ViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }

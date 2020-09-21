@@ -124,17 +124,17 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         self.view.addSubview(button.make(x:600,y:650,width:70,height:70,back:UIColor.white,tag:22, _borderWidth:1.5,_cornerRadius:6, _text:"〆", _fontSize:50))
         //終わり
         //年齢層
-        let gene:[UIButton] = [button.make(x:750,y:50,width:100,height:100,back:UIColor.white,tag:30, _borderWidth:1.5,_cornerRadius:6,_text:"12", _fontSize:50),
-                               button.make(x:850,y:50,width:100,height:100,back:UIColor.white,tag:31, _borderWidth:1.5,_cornerRadius:6,_text:"12", _fontSize:50),
-                               button.make(x:750,y:150,width:100,height:100,back:UIColor.white,tag:32, _borderWidth:1.5,_cornerRadius:6,_text:"19", _fontSize:50),
-                               button.make(x:850,y:150,width:100,height:100,back:UIColor.white,tag:33, _borderWidth:1.5,_cornerRadius:6,_text:"19", _fontSize:50),
-                               button.make(x:750,y:250,width:100,height:100,back:UIColor.white,tag:34, _borderWidth:1.5,_cornerRadius:6,_text:"29", _fontSize:50),
-                               button.make(x:850,y:250,width:100,height:100,back:UIColor.white,tag:35, _borderWidth:1.5,_cornerRadius:6,_text:"29", _fontSize:50),
-                               button.make(x:750,y:350,width:100,height:100,back:UIColor.white,tag:36, _borderWidth:1.5,_cornerRadius:6,_text:"49", _fontSize:50),
-                               button.make(x:850,y:350,width:100,height:100,back:UIColor.white,tag:37, _borderWidth:1.5,_cornerRadius:6,_text:"49", _fontSize:50),
-                               button.make(x:750,y:450,width:100,height:100,back:UIColor.white,tag:38, _borderWidth:1.5,_cornerRadius:6,_text:"50", _fontSize:50),
-                               button.make(x:850,y:450,width:100,height:100,back:UIColor.white,tag:39, _borderWidth:1.5,_cornerRadius:6,_text:"50", _fontSize:50)]
-        
+        self.view.addSubview(button.make(x:750,y:50,width:100,height:100,back:UIColor(red:0.10, green:0.10, blue:1, alpha:0.5),tag:30, _borderWidth:1.5,_cornerRadius:6,_text:"12", _fontSize:50))
+        self.view.addSubview(button.make(x:850,y:50,width:100,height:100,back:UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5),tag:31, _borderWidth:1.5,_cornerRadius:6,_text:"12", _fontSize:50))
+        self.view.addSubview(button.make(x:750,y:150,width:100,height:100,back:UIColor(red:0.10, green:0.10, blue:1, alpha:0.5),tag:32, _borderWidth:1.5,_cornerRadius:6,_text:"19", _fontSize:50))
+        self.view.addSubview(button.make(x:850,y:150,width:100,height:100,back:UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5),tag:33, _borderWidth:1.5,_cornerRadius:6,_text:"19", _fontSize:50))
+        self.view.addSubview(button.make(x:750,y:250,width:100,height:100,back:UIColor(red:0.10, green:0.10, blue:1, alpha:0.5),tag:34, _borderWidth:1.5,_cornerRadius:6,_text:"29", _fontSize:50))
+        self.view.addSubview(button.make(x:850,y:250,width:100,height:100,back:UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5),tag:35, _borderWidth:1.5,_cornerRadius:6,_text:"29", _fontSize:50))
+        self.view.addSubview(button.make(x:750,y:350,width:100,height:100,back:UIColor(red:0.10, green:0.10, blue:1, alpha:0.5),tag:36, _borderWidth:1.5,_cornerRadius:6,_text:"49", _fontSize:50))
+        self.view.addSubview(button.make(x:850,y:350,width:100,height:100,back:UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5),tag:37, _borderWidth:1.5,_cornerRadius:6,_text:"49", _fontSize:50))
+        self.view.addSubview(button.make(x:750,y:450,width:100,height:100,back:UIColor(red:0.10, green:0.10, blue:1, alpha:0.5),tag:38, _borderWidth:1.5,_cornerRadius:6,_text:"50", _fontSize:50))
+        self.view.addSubview(button.make(x:850,y:450,width:100,height:100,back:UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5),tag:39, _borderWidth:1.5,_cornerRadius:6,_text:"50", _fontSize:50))
+
         //年齢層年齢層マスク
         if appDelegate.geneMaskFlag != 100 {
             if appDelegate.geneMaskFlag % 2 == 0{
@@ -143,23 +143,8 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                 self.view.addSubview(label.make(x:850 ,y:CGFloat(50 + ((appDelegate.geneMaskFlag - 31) * 50)),width:100,height:100,back:UIColor.black,_cornerRadius:6,_alpha:0.3,_fontSize:50))
             }
         }
-        for i in 0...9{
-            if i % 2 == 0 {
-                gene[i].backgroundColor = UIColor(red:0.10, green:0.10, blue:1, alpha:0.5)
-            }else{
-                gene[i].backgroundColor = UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5)
-            }
-            self.view.addSubview(gene[i])
-        }
+
         
-        for i in 0...9{
-            if i % 2 == 0 {
-                gene[i].backgroundColor = UIColor(red:0.10, green:0.10, blue:1, alpha:0.5)
-            }else{
-                gene[i].backgroundColor = UIColor(red:0.96, green:0.25, blue:0.15, alpha:0.5)
-            }
-            self.view.addSubview(gene[i])
-        }
         let geneAns = button.make(x:750,y:570,width:200,height:60,back:UIColor.white,tag:22,_borderWidth:1.5,_cornerRadius:6, _text:"\(generation)", _fontSize:50)
         geneAns.titleLabel?.font = UIFont(name: "Bold",size: CGFloat(25))
         self.view.addSubview(geneAns)
@@ -219,7 +204,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
                        inputNum = tenkeyHandle(inputNum: inputNum)
                        audioPlayerInstance.play()
         case 20://戻るボタン
-            self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: ViewController())
             audioPlayerInstance.play()
         case 21://Enter
             if inputNum == ""{break}
@@ -295,7 +280,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             audioPlayerInstance.play()
             //遅延
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.present(view.viewSet(view: Ticket(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: ViewController())
             }
         case 22:
                        //✗

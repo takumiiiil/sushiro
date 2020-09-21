@@ -92,7 +92,7 @@ class Call: UIViewController {
             
             case 0:
                 addTimer.invalidate()
-                self.present(view.viewSet(view: Call(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: Call())
                 audioPlayerInstance.play()
                 // UIImageViewを作成.
                let imageView = UIImageView(frame: CGRect(x:CGFloat(0), y: CGFloat(0), width: CGFloat(550), height: CGFloat(700)))
@@ -104,7 +104,7 @@ class Call: UIViewController {
                 loadView()//videoplayerを破棄 画面遷移なしで
                 viewDidLoad()
             case 2:
-                self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+                view.viewSet(view: self, transition: ViewController())
                 audioPlayerInstance.play()
             default:break
         }

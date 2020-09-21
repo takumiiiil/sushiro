@@ -455,7 +455,7 @@ extension SplitViewController: UITableViewDelegate {
         // 再生準備
         audioPlayerInstance.prepareToPlay()
         audioPlayerInstance.volume = appDelegate.touchVolume
-        self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+        view.viewSet(view: self, transition: ViewController())
         audioPlayerInstance.play()
     }
     @objc func sliderDidEndSliding_t(_ sender: UISlider) {

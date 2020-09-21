@@ -81,7 +81,7 @@ extension MasterViewController: UITableViewDelegate {
                             for textField in textFields {
                                 if textField.text! == "1234"{
                                        //appDelegate.viewType = "年代別来店割合"
-                                       self.present(view.viewSet(view: Test(), anime: .flipHorizontal), animated: false, completion: nil)
+                                       view.viewSet(view: self, transition: Test())
                                 }else if textField.text! != "1234"{
                                     let ngalert = UIAlertController(title: "パスワードが違います", message: "", preferredStyle: .alert)
                                     ngalert.view.setNeedsLayout() // シミュレータの種類によっては、これがないと警告が発生

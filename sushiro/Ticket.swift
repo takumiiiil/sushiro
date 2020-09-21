@@ -63,14 +63,12 @@ class Ticket: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let view = viewSetting()
         switch sender.tag{
         case 0:
-            let pop = MakePopPassWord()
-            MakePopUp().alert(title: "OK", view: self)
-            
-            self.present(view.viewSet(view: Accounting(), anime: .flipHorizontal), animated: false, completion: nil)
+//            MakePopUp().alert(title: "OK", view: self)
+            view.viewSet(view: self, transition: Accounting())
             audioPlayerInstance.play()
         case 1:
-            MakePopPassWord().make(title:"fasd",pass:"123",transition: Accounting(),view:self)
-            self.present(view.viewSet(view: Camera(), anime: .flipHorizontal), animated: false, completion: nil)
+//            MakePopPassWord().make(title:"fasd",pass:"123",transition: Accounting(),view:self)
+            view.viewSet(view: self, transition: Accounting())
             audioPlayerInstance.play()
         default:break
         }

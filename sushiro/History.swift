@@ -21,7 +21,7 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         audioPlayerInstance.prepareToPlay()
         //クラスをインスタンス化
         let button = MakeButton()
-        let label = MakeLabel()        
+        let label = MakeLabel()
         
         let scrollView = UIScrollView()
        
@@ -75,13 +75,13 @@ class History: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let view = viewSetting()
         switch sender.tag{
         case 0:
-            self.present(view.viewSet(view: ViewController(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: ViewController())
             audioPlayerInstance.play()
         case 1:
-            self.present(view.viewSet(view: Reception(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Reception())
             audioPlayerInstance.play()
         case 2:
-            self.present(view.viewSet(view: Reception(), anime: .flipHorizontal), animated: false, completion: nil)
+            view.viewSet(view: self, transition: Reception())
             audioPlayerInstance.play()
         default:break
         }
