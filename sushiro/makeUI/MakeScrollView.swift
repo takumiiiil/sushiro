@@ -69,4 +69,54 @@ class MakeScrollView:UIScrollView{
         qrImageView.image = uiImage
         scrollView.addSubview(qrImageView)
     }
+    
+    // @objc func selection(sender: UIButton) {}
+    
+    func makeButton(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,tag:Int,
+              _pic:String="",_borderWidth:CGFloat=0.0,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
+              _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_isAdjusts:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center,_font:String = "Bold",
+              _isSelf:Bool = true,view:AnyObject){
+        
+        
+        //必須
+        
+        let button: UIButton = UIButton(frame: CGRect(x:x, y:y, width:width, height:height))
+        button.backgroundColor = back
+        button.tag = tag
+        button.addTarget(view, action: #selector(self.selection2(sender:)), for: .touchDown)
+
+
+
+        
+        //ビューオプション
+        
+        if _pic != ""{button.setBackgroundImage(UIImage(named: "\(_pic).jpeg"), for: .normal)}
+        button.layer.borderWidth = _borderWidth
+        if _borderWidth != 0.0 {button.layer.borderColor = UIColor.black.cgColor}
+        button.layer.masksToBounds = true//cornerRadiusを使用するために必要
+        button.layer.cornerRadius = _cornerRadius
+        button.alpha = _alpha
+        
+        //テキストオプション
+        button.setTitleColor(_textColer, for: .normal)
+        button.setTitle(_text, for: .normal)
+        button.titleLabel?.font =  UIFont(name:_font,size:_fontSize)
+        button.titleLabel?.font =  UIFont.systemFont(ofSize:_fontSize)
+        button.titleLabel?.adjustsFontSizeToFitWidth = _isAdjusts
+        scrollView.addSubview(button)
+        
+       
+    }
+    
+    @objc func selection2(sender: UIButton){
+        print("selection2にきてる")
+        switch sender.tag{
+        case 60:print("ok")
+        default:print("ng")
+            
+            
+        }
+    }
+
 }
+

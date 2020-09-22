@@ -8,11 +8,9 @@ class Accounting: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     var addTimer = Timer()
     var timerCount = 0
     var flag:[Bool] = [false,false,false]
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad")
         //背景を設定
         let background = MakeBackgroundImage()
         self.view.addSubview(background.make(image:"hakken2"))

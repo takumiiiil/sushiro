@@ -8,13 +8,20 @@ class MakeButton:UIButton,selection{
     
         func make(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,tag:Int,
                   _pic:String="",_borderWidth:CGFloat=0.0,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
-                  _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_isAdjusts:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center,_font:String = "Bold",view:AnyObject){
+                  _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_isAdjusts:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center,_font:String = "Bold",
+                  _isSelf:Bool = true,view:AnyObject){
             
+             
             //必須
             let button: UIButton = UIButton(frame: CGRect(x:x, y:y, width:width, height:height))
             button.backgroundColor = back
             button.tag = tag
-            button.addTarget(self, action: #selector(selection(sender:)), for: .touchUpInside)
+            if _isSelf{
+                button.addTarget(self, action: #selector(selection(sender:)), for: .touchUpInside)
+            }else{
+                 button.addTarget(self, action: #selector(MakeCalculator().selection(sender:)), for: .touchUpInside)
+            }
+            
             
             //ビューオプション
             

@@ -9,17 +9,19 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
     var timerCount = 0
     //テンキー用
     var tenkey:[[String]] = [[("1"),("2"),("3")],[("4"),("5"),("6")],[("7"),("8"),("9")]]
-    var inputNum:String = ""
+    //var inputNum:String = ""
     var change:String = ""
     var warning:String = ""
     var calculation:Int = 0
     //年齢層用
     var generation:String = ""
     let genArray : [String] = ["12歳以下男性","12歳以下女性","13-19歳男性","13-19歳女性","20-29歳男性","20-29歳女性","30-49歳男性","30-49歳女性","50歳以上男性","50歳以上女性"]
+    let calculator = MakeCalculator()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+       
         //背景を設定
         view.backgroundColor = UIColor.white
         
@@ -27,7 +29,7 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         //audioPlayerInstance.prepareToPlay()
 
         //クラスをインスタンス化
-        let button = MakeButton()
+       // let button = MakeButton()
         let label = MakeLabel()
         
         //集計操作
@@ -42,7 +44,8 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         scrollView.makeLabel(x:20,y:15,width:300,height:20,back:UIColor.clear,_text:"うまいすしを、精一杯。", _fontSize:25,view:scrollView)
         scrollView.makeLabel(x:20,y:35,width:300,height:50,back:UIColor.clear,_text:"スシロー",_fontSize:45,view:scrollView)
         scrollView.makeLabel(x:20,y:95,width:300,height:25,back:UIColor.clear,_text:"ホール・キッチンスタッフ募集中!!",_fontSize:35,view:scrollView)
-        scrollView.makeLabel(x:20,y:130,width:300,height:25,back:UIColor.clear,_text:"詳しくはURLから",_fontSize:35,view:scrollView)
+        //scrollView.makeLabel(x:20,y:130,width:300,height:25,back:UIColor.clear,_text:"詳しくはURLから",_fontSize:35,view:scrollView)
+        scrollView.makeButton(x:20,y:130,width:300,height:25,back:UIColor.black, tag:60,_text:"詳しくはURLから",_fontSize:35,view:scrollView)
         scrollView.makeLabel(x:20,y:165,width:300,height:25,back:UIColor.clear,_text:"www.akindo-sushiro.co.jp/m",_fontSize:35,view:scrollView)
         scrollView.makeLabel(x:20,y:195,width:300,height:175,back:UIColor.clear,_borderWidth:1.5,_fontSize:35,view:scrollView)
         scrollView.makeLabel(x:70,y:210,width:200,height:40,back:UIColor.clear,_text:"アンケートに答えて\nお得なクーポンをゲット!",_fontSize:35,view:scrollView)
@@ -85,11 +88,15 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         scrollView.makeLabel(x:20,y:590,width:300,height:35,back:UIColor.clear,_text:"外税(10%)　　　　¥\(num2)",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
         scrollView.makeLabel(x:20,y:630,width:300,height:35,back:UIColor.clear,_text:"==================================",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
         scrollView.makeLabel(x:20,y:670,width:300,height:35,back:UIColor.clear,_text:"合計(\(obj!.dish))点　　　　¥\(obj!.dish*110)",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
-        scrollView.makeLabel(x:20,y:700,width:300,height:35,back:UIColor.clear,_text:"お預り　　　　　　　　　　　　¥\(inputNum)",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
+        scrollView.makeLabel(x:20,y:700,width:300,height:35,back:UIColor.clear,_text:"お預り　　　　　　　　　　　　¥\(calculator.inputNum)",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
         scrollView.makeLabel(x:20,y:730,width:300,height:35,back:UIColor.clear,_text:"お釣　　　　　　　　　　　　　¥\(change)",_fontSize:25,_alignment:NSTextAlignment.left,view:scrollView)
 
+        
+        calculator.make(view:self)
+
+        
         //ラベル作成 //計算
-        label.make(x: 400, y: 29, width:50, height:20,back:UIColor.clear,_text:"預かり", _fontSize:10,view:self)
+       /* label.make(x: 400, y: 29, width:50, height:20,back:UIColor.clear,_text:"預かり", _fontSize:10,view:self)
         label.make(x: 400, y: 129, width:50, height:20,back:UIColor.clear,_text:"会計", _fontSize:10,view:self)
         label.make(x: 400, y: 229, width:50, height:20,back:UIColor.clear,_text:"お釣り", _fontSize:10,view:self)
         label.make(x: 400, y: 50, width:270, height:60,back:UIColor.clear,_borderWidth:1.5,_cornerRadius:6,_text:"¥\(inputNum)", _fontSize:50,view:self)
@@ -129,44 +136,22 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             }
         }
      
-        button.make(x:750,y:570,width:200,height:60,back:UIColor.white,tag:22,_borderWidth:1.5,_cornerRadius:6, _text:"\(generation)", _fontSize:25,_font:"Bold",view:self)
+        button.make(x:750,y:570,width:200,height:60,back:UIColor.white,tag:22,_borderWidth:1.5,_cornerRadius:6, _text:"\(generation)", _fontSize:25,_font:"Bold",view:self)*/
 
         
         //年齢層終わり
-        func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
+     
     }
     
-    //テンキー用メソッド
-    func tenkeyHandle(inputNum:String) -> String{
-        var input = inputNum
-        calculation = Int(input.replacingOccurrences(of: ",", with: ""))!
-        if input.first == "0"{input = String(input.dropFirst())}
-        if input.count >= 7 {
-            warning = "これ以上入力できません"
-            viewDidLoad()
-            return input
-        }else{
-            warning = ""
-            viewDidLoad()
-            //if input.count == 4 {input = inputNum + ","}
-            return input
-        }
-    }
     
-    //formatterメソッド
-    func formatterMake() -> NumberFormatter{
-        let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.decimal
-        formatter.groupingSeparator = ","
-        formatter.groupingSize = 3
-        return formatter
-    }
+    
+
+    
+
     
     //ボタンイベント
-    @objc func selection(sender: UIButton){
+ /*   @objc func selection(sender: UIButton){
+        print("きてる")
         let view = viewSetting()
         if sender.tag <= 10 {
             k = sender.tag
@@ -176,28 +161,28 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         }
         switch sender.tag{
          case k://tenkey
-                       if inputNum.count <= 7{
+                       if calculator.inputNum.count <= 7{
                            if k == 10 {
-                               inputNum += "0"
+                               calculator.inputNum += "0"
                            }else{
-                               inputNum += "\(k)"
+                               calculator.inputNum += "\(k)"
                            }
-                           let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))!
-                           inputNum = String(formatterMake().string(from: value as NSNumber)!)
+                           let value = Int(calculator.inputNum.replacingOccurrences(of: ",", with: ""))!
+                           calculator.inputNum = String(formatterMake().string(from: value as NSNumber)!)
                        }
-                       inputNum = tenkeyHandle(inputNum: inputNum)
+                       calculator.inputNum = tenkeyHandle(inputNum:inputNum)
                        audioPlayerInstance.play()
         case 20://戻るボタン
             view.viewSet(view: self, transition: ViewController())
             audioPlayerInstance.play()
         case 21://Enter
-            if inputNum == ""{break}
-            let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))! - (appDelegate.dishSum * 110)
+            if calculator.inputNum == ""{break}
+            let value = Int(calculator.inputNum.replacingOccurrences(of: ",", with: ""))! - (appDelegate.dishSum * 110)
             if value < 0 {
                 //ポップアップ表示
                 let popUp = MakePopUp()
                 popUp.alert(title: "再入力して下さい", view: self)
-                inputNum = ""
+                calculator.inputNum = ""
                 viewDidLoad()
                 audioPlayerInstance.play()
                 break
@@ -255,24 +240,34 @@ class Reception: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             }
         case 22:
                        //✗
-                       inputNum = String(inputNum.dropLast())
-                       if inputNum == "" {
+                       calculator.inputNum = String(calculator.inputNum.dropLast())
+                       if calculator.inputNum == "" {
                            viewDidLoad()
                            //audioPlayerInstance.play()
                            break
                        }
-                       let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))!
-                       inputNum = String(formatterMake().string(from: value as NSNumber)!)
+                       let value = Int(calculator.inputNum.replacingOccurrences(of: ",", with: ""))!
+                       calculator.inputNum = String(formatterMake().string(from: value as NSNumber)!)
                        viewDidLoad()
                        audioPlayerInstance.play()
         //年齢層
         case l:
             generation = genArray[l - 30]
             appDelegate.geneMaskFlag = sender.tag
+            loadView()
             viewDidLoad()
             audioPlayerInstance.play()
             //年齢層終わり
         default:break
         }
+    }*/
+        //formatterメソッド
+        func formatterMake() -> NumberFormatter{
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.decimal
+            formatter.groupingSeparator = ","
+            formatter.groupingSize = 3
+            return formatter
+        }
     }
-}
+
