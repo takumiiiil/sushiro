@@ -46,7 +46,7 @@ class MakeCalculator:UIViewController{
         makeLabel(x: 400, y: 129, width:50, height:20,back:UIColor.clear,_text:"会計", _fontSize:10,view:view)
         makeLabel(x: 400, y: 229, width:50, height:20,back:UIColor.clear,_text:"お釣り", _fontSize:10,view:view)
         makeLabel(x: 400, y: 50, width:270, height:60,back:UIColor.clear,_borderWidth:1.5,_cornerRadius:6,_text:"¥\(inputNum)", _fontSize:50,view:view)
-        makeLabel(x: 400, y: 150, width:270, height:60,back:UIColor.clear,_borderWidth:1.5,_cornerRadius:6,_text:"¥\(dishFee)", _fontSize:50,view:view)
+        makeLabel(x: 400, y: 150, width:270, height:60,back:UIColor.clear,_borderWidth:1.5,_cornerRadius:6,_text:"¥\(Int(Double(dishFee)! * 1.1))", _fontSize:50,view:view)
         makeLabel(x: 400, y: 250, width:270, height:60,back:UIColor.clear,_borderWidth:1.5,_cornerRadius:6,_text:"¥\(change)", _fontSize:50,view:view)
         makeLabel(x: 600, y: 29, width:50, height:20,back:UIColor.clear,_text:"\(warning)", _fontSize:10,view:view)
         //ボタン作成
@@ -90,8 +90,7 @@ class MakeCalculator:UIViewController{
     }
     
 
-    @objc func selection2(sender: UIButton){
-        print("きてる")
+    @objc func selection(sender: UIButton){
         let view = viewSetting()
         if sender.tag <= 10 {
             k = sender.tag
@@ -112,17 +111,19 @@ class MakeCalculator:UIViewController{
             }
             inputNum = tenkeyHandle(inputNum: inputNum)
             audioPlayerInstance.play()
-        case 20://戻るボタン
-            view.viewSet(view: self, transition: ViewController())
-            audioPlayerInstance.play()
         case 21://Enter
-            if inputNum == ""{break}
+            if inputNum == ""{
+                let popUp = MakePopUp()
+                popUp.alert(title: "未入力があります", view: test)
+                break
+            }
             let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))! - (appDelegate.dishSum * 110)
             if value < 0 {
                 //ポップアップ表示
                 let popUp = MakePopUp()
-                popUp.alert(title: "再入力して下さい", view: self)
+                popUp.alert(title: "再入力して下さい", view: test)
                 inputNum = ""
+                test.loadView()
                 test.viewDidLoad()
                 audioPlayerInstance.play()
                 break
@@ -130,7 +131,8 @@ class MakeCalculator:UIViewController{
             if generation == "" {
                 //ポップアップ表示
                 let popUp = MakePopUp()
-                popUp.alert(title: "未入力があります", view: self)
+                popUp.alert(title: "未入力があります", view: test)
+                break
             }
             change = String(formatterMake().string(from: value as NSNumber)!)
             test.viewDidLoad()
@@ -174,20 +176,24 @@ class MakeCalculator:UIViewController{
             appDelegate.geneMaskFlag = 100
             appDelegate.history = []
             audioPlayerInstance.play()
+            test.loadView()
+            test.viewDidLoad()
             //遅延
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                view.viewSet(view: self, transition: ViewController())
+                view.viewSet(view: self.test, transition: ViewController())
             }
         case 22:
             //✗
             inputNum = String(inputNum.dropLast())
             if inputNum == "" {
+                test.loadView()
                 test.viewDidLoad()
-                //audioPlayerInstance.play()
+                audioPlayerInstance.play()
                 break
             }
             let value = Int(inputNum.replacingOccurrences(of: ",", with: ""))!
             inputNum = String(formatterMake().string(from: value as NSNumber)!)
+            test.loadView()
             test.viewDidLoad()
             audioPlayerInstance.play()
         //年齢層
@@ -211,14 +217,14 @@ class MakeCalculator:UIViewController{
         if input.first == "0"{input = String(input.dropFirst())}
         if input.count >= 7 {
             warning = "これ以上入力できません"
-           test.loadView()
-           test.viewDidLoad()
+            test.loadView()
+            test.viewDidLoad()
            
             return input
         }else{
             warning = ""
-           test.loadView()
-           test.viewDidLoad()
+            test.loadView()
+            test.viewDidLoad()
             if input.count == 4 {input = inputNum + ","}
             return input
         }
@@ -270,7 +276,7 @@ class MakeCalculator:UIViewController{
         let button: UIButton = UIButton(frame: CGRect(x:x, y:y, width:width, height:height))
         button.backgroundColor = back
         button.tag = tag
-        button.addTarget(self, action: #selector(selection2(sender:)), for: .touchDown)
+        button.addTarget(self, action: #selector(selection(sender:)), for: .touchDown)
         
         //ビューオプション
         if _pic != ""{button.setBackgroundImage(UIImage(named: "\(_pic).jpeg"), for: .normal)}
