@@ -35,6 +35,9 @@ class Ticket: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         let guestData = InitGuestData()
         let appSetting = InitAppSetting()
         
+        let LoginData = InitLogInData()
+        LoginData.doInit()
+        
         //realm初期化
         guestData.doInit()
         appSetting.doInit()
@@ -66,7 +69,7 @@ class Ticket: UIViewController,UITextFieldDelegate,UITabBarDelegate {
             view.viewSet(view: self, transition: Accounting())
             audioPlayerInstance.play()
         case 1:
-            view.viewSet(view: self, transition: Accounting())
+            view.viewSet(view: self, transition: CheckIn())
             audioPlayerInstance.play()
         default:break
         }

@@ -3,6 +3,7 @@ import UIKit
 class MakeScrollView:UIScrollView{
     
     let scrollView = UIScrollView()
+    @objc func selection(sender: UIButton) {}
     
     func make(x:Int,y:Int,width:Int,height:Int,contentHeight:Int,view:AnyObject){
         
@@ -83,13 +84,9 @@ class MakeScrollView:UIScrollView{
         let button: UIButton = UIButton(frame: CGRect(x:x, y:y, width:width, height:height))
         button.backgroundColor = back
         button.tag = tag
-        button.addTarget(view, action: #selector(self.selection2(sender:)), for: .touchDown)
+        button.addTarget(view, action: #selector(selection(sender:)), for: .touchDown)
 
-
-
-        
         //ビューオプション
-        
         if _pic != ""{button.setBackgroundImage(UIImage(named: "\(_pic).jpeg"), for: .normal)}
         button.layer.borderWidth = _borderWidth
         if _borderWidth != 0.0 {button.layer.borderColor = UIColor.black.cgColor}
@@ -108,15 +105,7 @@ class MakeScrollView:UIScrollView{
        
     }
     
-    @objc func selection2(sender: UIButton){
-        print("selection2にきてる")
-        switch sender.tag{
-        case 60:print("ok")
-        default:print("ng")
-            
-            
-        }
     }
 
-}
+
 

@@ -4,7 +4,7 @@ import UIKit
 class MakeLabel:UILabel{
    
     func make(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,back:UIColor,
-              _borderWidth:CGFloat=0.0,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
+              _borderWidth:CGFloat=0.0,_borderColor:CGColor = UIColor.black.cgColor,_cornerRadius:CGFloat=0.0,_alpha:CGFloat=1.0,
               _text:String="",_textColer:UIColor=UIColor.black,_fontSize:CGFloat=30,_isAdjusts:Bool=true,_alignment:NSTextAlignment=NSTextAlignment.center,view:AnyObject){
 
         //必須
@@ -13,7 +13,7 @@ class MakeLabel:UILabel{
         
         //ビューオプション
         label.layer.borderWidth = _borderWidth
-        if _borderWidth != 0.0{label.layer.borderColor = UIColor.black.cgColor}
+        label.layer.borderColor = _borderColor
         label.layer.masksToBounds = true//cornerRadiusを使用するために必要
         label.layer.cornerRadius = _cornerRadius
         label.alpha = _alpha

@@ -29,6 +29,14 @@
 		33578C1B25185E2800DD5BAF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33578C1725185E2800DD5BAF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		33578C1E25187A9D00DD5BAF /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C1D25187A9C00DD5BAF /* MenuData.swift */; };
 		33578C202518956800DD5BAF /* MakeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C1F2518956800DD5BAF /* MakeCalculator.swift */; };
+		33578C262519D0B300DD5BAF /* CalculatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C252519D0B300DD5BAF /* CalculatorDelegate.swift */; };
+		33578C28251AD8FE00DD5BAF /* selection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C27251AD8FD00DD5BAF /* selection2.swift */; };
+		33578C2A251D810F00DD5BAF /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C29251D810D00DD5BAF /* CheckIn.swift */; };
+		33578C2C251D819800DD5BAF /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C2B251D819800DD5BAF /* SignUp.swift */; };
+		33578C2E251D821D00DD5BAF /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C2D251D821D00DD5BAF /* LogIn.swift */; };
+		33578C30251D82A300DD5BAF /* MakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C2F251D82A300DD5BAF /* MakeTextField.swift */; };
+		33578C32251D842B00DD5BAF /* LogInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C31251D842B00DD5BAF /* LogInData.swift */; };
+		33578C34251D847600DD5BAF /* InitLogInData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33578C33251D847600DD5BAF /* InitLogInData.swift */; };
 		E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */; };
 		E1204C2125130F7200274E5B /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2025130F7200274E5B /* AppSetting.swift */; };
 		E1204C2325130F8000274E5B /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1204C2225130F8000274E5B /* AllData.swift */; };
@@ -101,6 +109,14 @@
 		33578C1725185E2800DD5BAF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = sushiro/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		33578C1D25187A9C00DD5BAF /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		33578C1F2518956800DD5BAF /* MakeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeCalculator.swift; sourceTree = "<group>"; };
+		33578C252519D0B300DD5BAF /* CalculatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDelegate.swift; sourceTree = "<group>"; };
+		33578C27251AD8FD00DD5BAF /* selection2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selection2.swift; sourceTree = "<group>"; };
+		33578C29251D810D00DD5BAF /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		33578C2B251D819800DD5BAF /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		33578C2D251D821D00DD5BAF /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		33578C2F251D82A300DD5BAF /* MakeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTextField.swift; sourceTree = "<group>"; };
+		33578C31251D842B00DD5BAF /* LogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInData.swift; sourceTree = "<group>"; };
+		33578C33251D847600DD5BAF /* InitLogInData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitLogInData.swift; sourceTree = "<group>"; };
 		E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionProtocol.swift; sourceTree = "<group>"; };
 		E1204C2025130F7200274E5B /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		E1204C2225130F8000274E5B /* AllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
@@ -165,6 +181,7 @@
 			children = (
 				33578C092515B52200DD5BAF /* InitGuestData.swift */,
 				33578C0B2515B8E000DD5BAF /* InitAppSetting.swift */,
+				33578C33251D847600DD5BAF /* InitLogInData.swift */,
 			);
 			path = init;
 			sourceTree = "<group>";
@@ -181,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				E1204C1A25130F2C00274E5B /* SelectionProtocol.swift */,
+				33578C252519D0B300DD5BAF /* CalculatorDelegate.swift */,
+				33578C27251AD8FD00DD5BAF /* selection2.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -191,6 +210,7 @@
 				E1204C2025130F7200274E5B /* AppSetting.swift */,
 				E1204C2225130F8000274E5B /* AllData.swift */,
 				E1204C382513177300274E5B /* GuestData.swift */,
+				33578C31251D842B00DD5BAF /* LogInData.swift */,
 			);
 			name = realmData;
 			sourceTree = "<group>";
@@ -228,6 +248,7 @@
 				33578C0D2516CDDF00DD5BAF /* MakePicker.swift */,
 				33578C0F25182E1500DD5BAF /* MakeScrollView.swift */,
 				33578C112518422400DD5BAF /* MakeCell.swift */,
+				33578C2F251D82A300DD5BAF /* MakeTextField.swift */,
 			);
 			path = makeUI;
 			sourceTree = "<group>";
@@ -281,6 +302,7 @@
 				E1204C1425130EAE00274E5B /* data */,
 				E1DEE134250DCEAE001F32A6 /* AppDelegate.swift */,
 				E1C8AE95250DD186007B18DC /* Ticket.swift */,
+				E1C8AE97250DD186007B18DC /* Reception.swift */,
 				E1C8AE94250DD186007B18DC /* Accounting.swift */,
 				E1C8AE92250DD15C007B18DC /* Menu.swift */,
 				E1DEE138250DCEAE001F32A6 /* ViewController.swift */,
@@ -296,11 +318,13 @@
 				3333102325131DF600EC7320 /* movie03.mp4 */,
 				E1C8AE98250DD186007B18DC /* MasterViewController.swift */,
 				E1C8AE96250DD186007B18DC /* Order.swift */,
-				E1C8AE97250DD186007B18DC /* Reception.swift */,
 				E1C8AE9C250DD186007B18DC /* SplitViewController.swift */,
 				E1C8AE9B250DD186007B18DC /* Test.swift */,
 				E1DEE13D250DCEB1001F32A6 /* Assets.xcassets */,
 				E1DEE142250DCEB1001F32A6 /* Info.plist */,
+				33578C29251D810D00DD5BAF /* CheckIn.swift */,
+				33578C2B251D819800DD5BAF /* SignUp.swift */,
+				33578C2D251D821D00DD5BAF /* LogIn.swift */,
 			);
 			path = sushiro;
 			sourceTree = "<group>";
@@ -383,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1DEE139250DCEAE001F32A6 /* ViewController.swift in Sources */,
+				33578C30251D82A300DD5BAF /* MakeTextField.swift in Sources */,
 				33187EC025134CD800D4BD18 /* SettingDelegate.swift in Sources */,
 				33578C0A2515B52200DD5BAF /* InitGuestData.swift in Sources */,
 				33578C0E2516CDDF00DD5BAF /* MakePicker.swift in Sources */,
@@ -400,12 +425,18 @@
 				E1C8AEA6250DD186007B18DC /* Test.swift in Sources */,
 				33578C122518422400DD5BAF /* MakeCell.swift in Sources */,
 				E1C8AEA5250DD186007B18DC /* Call.swift in Sources */,
+				33578C32251D842B00DD5BAF /* LogInData.swift in Sources */,
 				E1C8AE93250DD15C007B18DC /* Menu.swift in Sources */,
+				33578C2A251D810F00DD5BAF /* CheckIn.swift in Sources */,
 				E1C8AEA3250DD186007B18DC /* MasterViewController.swift in Sources */,
+				33578C2C251D819800DD5BAF /* SignUp.swift in Sources */,
 				33578C1E25187A9D00DD5BAF /* MenuData.swift in Sources */,
 				E1204C1B25130F2C00274E5B /* SelectionProtocol.swift in Sources */,
+				33578C28251AD8FE00DD5BAF /* selection2.swift in Sources */,
+				33578C34251D847600DD5BAF /* InitLogInData.swift in Sources */,
 				E1204C352513103800274E5B /* MakeSlider.swift in Sources */,
 				E1C8AEA7250DD186007B18DC /* SplitViewController.swift in Sources */,
+				33578C262519D0B300DD5BAF /* CalculatorDelegate.swift in Sources */,
 				E1204C2D25130FF600274E5B /* ViewSetting.swift in Sources */,
 				33578C1025182E1500DD5BAF /* MakeScrollView.swift in Sources */,
 				E1204C332513102800274E5B /* MakeButton.swift in Sources */,
@@ -413,6 +444,7 @@
 				E1204C2725130FC500274E5B /* MakeQrcode.swift in Sources */,
 				E1204C2125130F7200274E5B /* AppSetting.swift in Sources */,
 				33578C202518956800DD5BAF /* MakeCalculator.swift in Sources */,
+				33578C2E251D821D00DD5BAF /* LogIn.swift in Sources */,
 				E1204C312513101600274E5B /* MakeStepper.swift in Sources */,
 				E1C8AE9F250DD186007B18DC /* Accounting.swift in Sources */,
 				33578C0525159C3100DD5BAF /* MakeBackgroundImage.swift in Sources */,

@@ -35,45 +35,7 @@ class Menu: UIViewController,UITextFieldDelegate,UITabBarDelegate {
         // タイマーを無効にする
         addTimer.invalidate()
     }
-    
-    override func loadView() {
-        super.loadView()
-        print("loadView")
-    }
-    
-    
-    
-    // 画面に表示される直前に呼ばれます。
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("viewWillAppear")
-    }
-    
-    // 画面に表示された直後に呼ばれます。
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("viewDidAppear")
-    }
-    
-    // 画面から非表示になる直前に呼ばれます。
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("viewWillDisappear")
-    }
-    
-    // 画面から非表示になる直後に呼ばれます。
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("viewDidDisappear")
-    }
-    
-    
-    // メモリーが不足にてインスタンスが破棄される直前に呼ばれます。
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        print("didReceiveMemoryWarning")
-    }
-    //メソッド終わり
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
